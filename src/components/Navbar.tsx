@@ -72,7 +72,11 @@ export default function Navbar() {
 
   const linkVariants = {
     closed: { opacity: 0, y: 30 },
-    open: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" as const },
+    },
   };
 
   return (
@@ -80,7 +84,7 @@ export default function Navbar() {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 1, ease: "easeOut" as const }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-in-out ${jost.className} ${
           isScrolled
             ? "bg-[#3E141E]/95 backdrop-blur-xl border-b border-white/10 py-4 shadow-2xl"
