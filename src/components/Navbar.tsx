@@ -33,7 +33,6 @@ export default function Navbar() {
     { name: "Corporate", path: "/corporate" },
   ];
 
-  // 'Journal' অপশনটি এখানে যুক্ত করা হয়েছে
   const rightLinks: NavLink[] = [
     { name: "Packages", path: "/packages" },
     { name: "About", path: "/about" },
