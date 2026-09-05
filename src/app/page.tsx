@@ -6,7 +6,6 @@ import Link from "next/link";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
-// প্রিমিয়াম ফন্ট লোড
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -18,7 +17,6 @@ const jost = Jost({
   weight: ["200", "300", "400", "500"],
 });
 
-// --- Mock Data (লোকাল ছবি ব্যবহার করলে লিংকগুলোর শুরুতে অবশ্যই / দেবেন) ---
 const heroImages = [
   "/images/hero/hero1.webp",
   "/images/hero/hero2.webp",
@@ -178,7 +176,6 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentReview, setCurrentReview] = useState(0);
 
-  // Hero Slider Logic
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) =>
@@ -215,7 +212,7 @@ export default function Home() {
               fill
               className="object-cover"
               priority
-              unoptimized /* অটোমেটিক কম্প্রেশন বন্ধ করা হয়েছে */
+              unoptimized
             />
             <div className="absolute inset-0 bg-black/40 bg-gradient-to-t from-[#3E141E] via-transparent to-black/30"></div>
           </motion.div>
@@ -262,7 +259,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ================= SELECTED ARCHIVES ================= */}
+      {/* ================= VISUAL ANTHOLOGY ================= */}
       <section className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
         <motion.div
           variants={sectionVariants}
@@ -274,7 +271,7 @@ export default function Home() {
           <h2
             className={`text-4xl md:text-5xl text-white tracking-wider mb-4 ${cormorant.className}`}
           >
-            Selected Archives
+            VISUAL ANTHOLOGY
           </h2>
           <div className="w-12 h-[1px] bg-[#cba677] mx-auto"></div>
         </motion.div>
@@ -297,7 +294,7 @@ export default function Home() {
                 alt={album.title}
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100"
-                unoptimized /* অটোমেটিক কম্প্রেশন বন্ধ করা হয়েছে */
+                unoptimized
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#3E141E]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
                 <h3 className="text-[10px] uppercase tracking-[0.2em] font-medium text-white">
@@ -311,14 +308,14 @@ export default function Home() {
         <div className="mt-16 flex justify-center">
           <Link href="/wedding" className="group flex items-center space-x-4">
             <span className="text-[10px] uppercase tracking-[0.3em] text-[#cba677] group-hover:text-white transition-colors duration-300">
-              Explore Portfolio
+              Experience The Complete Chronicle
             </span>
             <span className="w-12 h-[1px] bg-[#cba677] group-hover:w-16 group-hover:bg-white transition-all duration-300"></span>
           </Link>
         </div>
       </section>
 
-      {/* ================= MOTION PICTURES ================= */}
+      {/* ================= STORIES IN MOTION ================= */}
       <section className="py-24 px-6 lg:px-12 bg-black/20">
         <div className="max-w-[1400px] mx-auto">
           <motion.div
@@ -331,7 +328,7 @@ export default function Home() {
             <h2
               className={`text-4xl md:text-5xl text-white tracking-wider mb-4 ${cormorant.className}`}
             >
-              Motion Pictures
+              STORIES IN MOTION
             </h2>
             <div className="w-12 h-[1px] bg-[#cba677] mx-auto"></div>
           </motion.div>
@@ -355,7 +352,7 @@ export default function Home() {
                     alt={video.title}
                     fill
                     className="object-cover opacity-70 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
-                    unoptimized /* অটোমেটিক কম্প্রেশন বন্ধ করা হয়েছে */
+                    unoptimized
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-12 h-8 bg-red-600 rounded-lg flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity duration-300">
@@ -381,7 +378,7 @@ export default function Home() {
               className="group flex items-center space-x-4"
             >
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#cba677] group-hover:text-white transition-colors duration-300">
-                Discover All Films
+                Watch The Stories Unfold
               </span>
               <span className="w-12 h-[1px] bg-[#cba677] group-hover:w-16 group-hover:bg-white transition-all duration-300"></span>
             </Link>
@@ -400,7 +397,7 @@ export default function Home() {
           <h2
             className={`text-4xl md:text-5xl text-white tracking-wider mb-4 ${cormorant.className}`}
           >
-            Reviews
+            Words Of Grace
           </h2>
           <div className="w-12 h-[1px] bg-[#cba677] mx-auto mb-16"></div>
 
