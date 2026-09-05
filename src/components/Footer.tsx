@@ -104,14 +104,19 @@ export default function Footer() {
               Portfolios
             </h4>
             <ul className="space-y-6">
-              {["Wedding", "Corporate", "Product"].map((item) => (
-                <li key={item}>
+              {[
+                { name: "Wedding", path: "/wedding" },
+                { name: "Corporate", path: "/corporate" },
+                { name: "Product", path: "/product" },
+                { name: "Maternity & Birthday", path: "/maternity" },
+              ].map((item) => (
+                <li key={item.name}>
                   <Link
-                    href={`/${item.toLowerCase()}`}
+                    href={item.path}
                     className="text-gray-300 hover:text-white text-sm tracking-[0.15em] transition-all duration-500 flex items-center group font-light hover:tracking-[0.2em]"
                   >
                     <span className="w-0 h-[1px] bg-white mr-0 group-hover:w-6 group-hover:mr-4 transition-all duration-500 ease-in-out"></span>
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
