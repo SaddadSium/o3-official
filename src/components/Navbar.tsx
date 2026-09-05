@@ -85,14 +85,15 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 1, ease: "easeOut" as const }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-in-out ${jost.className} ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-in-out text-white ${jost.className} ${
           isScrolled
             ? "bg-[#3E141E]/95 backdrop-blur-xl border-b border-white/10 py-4 shadow-2xl"
-            : "bg-transparent py-8"
+            : "bg-[#0A0A0A] py-6 border-b border-white/10 shadow-xl"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-center">
+            {/* Left Navigation Links */}
             <div className="hidden lg:flex items-center space-x-10 w-1/3">
               {leftLinks.map((link) => {
                 const isActive = pathname === link.path;
@@ -102,7 +103,13 @@ export default function Navbar() {
                     href={link.path}
                     className="relative group text-[10px] uppercase tracking-[0.2em] font-light text-gray-300 hover:text-white transition-colors duration-500"
                   >
-                    <span className={isActive ? "text-white font-medium" : ""}>
+                    <span
+                      className={
+                        isActive
+                          ? "text-[#cba677] font-medium"
+                          : "text-gray-300"
+                      }
+                    >
                       {link.name}
                     </span>
                     <span
@@ -113,6 +120,7 @@ export default function Navbar() {
               })}
             </div>
 
+            {/* Center Logo */}
             <div className="flex-shrink-0 w-1/3 flex justify-center z-50">
               <Link href="/" className="flex flex-col items-center group">
                 <span
@@ -121,11 +129,11 @@ export default function Navbar() {
                   O<span className="text-[#cba677] italic">3</span>
                 </span>
                 <motion.span
-                  className="text-[8px] text-gray-300 tracking-[0.5em] mt-2 font-light uppercase"
+                  className="text-[8px] text-gray-400 tracking-[0.5em] mt-1 font-light uppercase"
                   animate={{
                     opacity: isScrolled ? 0 : 1,
                     height: isScrolled ? 0 : "auto",
-                    marginTop: isScrolled ? 0 : 8,
+                    marginTop: isScrolled ? 0 : 4,
                   }}
                   transition={{ duration: 0.3 }}
                 >
@@ -134,6 +142,7 @@ export default function Navbar() {
               </Link>
             </div>
 
+            {/* Right Navigation Links & Inquire Button */}
             <div className="hidden lg:flex items-center justify-end space-x-10 w-1/3">
               {rightLinks.map((link) => {
                 const isActive = pathname === link.path;
@@ -143,7 +152,13 @@ export default function Navbar() {
                     href={link.path}
                     className="relative group text-[10px] uppercase tracking-[0.2em] font-light text-gray-300 hover:text-white transition-colors duration-500"
                   >
-                    <span className={isActive ? "text-white font-medium" : ""}>
+                    <span
+                      className={
+                        isActive
+                          ? "text-[#cba677] font-medium"
+                          : "text-gray-300"
+                      }
+                    >
                       {link.name}
                     </span>
                     <span
@@ -155,15 +170,16 @@ export default function Navbar() {
 
               <Link
                 href="/contact"
-                className={`relative overflow-hidden px-8 py-3 border border-white/20 text-[10px] uppercase tracking-[0.25em] text-white group transition-all duration-500 hover:border-[#cba677]`}
+                className="relative overflow-hidden px-8 py-3 border border-[#cba677]/60 text-[10px] uppercase tracking-[0.25em] text-white group transition-all duration-500 hover:border-[#cba677]"
               >
-                <span className="relative z-10 group-hover:text-[#3E141E] transition-colors duration-500">
+                <span className="relative z-10 text-white group-hover:text-[#0A0A0A] transition-colors duration-500">
                   Inquire
                 </span>
                 <span className="absolute inset-0 bg-[#cba677] transform scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100 z-0"></span>
               </Link>
             </div>
 
+            {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center justify-end w-1/3 z-50">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -184,6 +200,7 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
+      {/* Mobile Fullscreen Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -191,7 +208,7 @@ export default function Navbar() {
             initial="closed"
             animate="open"
             exit="closed"
-            className={`fixed inset-0 z-40 bg-[#3E141E] flex flex-col justify-center items-center ${jost.className}`}
+            className={`fixed inset-0 z-40 bg-[#0A0A0A] text-white flex flex-col justify-center items-center ${jost.className}`}
           >
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-transparent via-[#cba677]/20 to-transparent"></div>
 
@@ -220,7 +237,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="px-12 py-4 border border-[#cba677] text-[#cba677] text-[10px] tracking-[0.3em] uppercase hover:bg-[#cba677] hover:text-[#3E141E] transition-all duration-500"
+                  className="px-12 py-4 border border-[#cba677] text-[#cba677] text-[10px] tracking-[0.3em] uppercase hover:bg-[#cba677] hover:text-[#0A0A0A] transition-all duration-500"
                 >
                   Book the Studio
                 </Link>
