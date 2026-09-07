@@ -59,8 +59,8 @@ const corePillars = [
 const coFounders = [
   {
     id: 1,
-    name: "A.S.M. Sium",
-    role: "Co-Founder & Lead Creator",
+    name: "Md. Nakib Nizam",
+    role: "Founder & CEO",
     image:
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
     fb: "#",
@@ -69,8 +69,8 @@ const coFounders = [
   },
   {
     id: 2,
-    name: "Tanvir Ahmed",
-    role: "Co-Founder & Director of Cinematography",
+    name: "A.S.M. Sium",
+    role: "Creative Director",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",
     fb: "#",
