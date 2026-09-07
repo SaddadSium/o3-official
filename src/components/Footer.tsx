@@ -107,7 +107,7 @@ export default function Footer() {
               {[
                 { name: "Wedding", path: "/wedding" },
                 { name: "Corporate", path: "/corporate" },
-                { name: "Product", path: "/product" },
+                { name: "Event Management", path: "/event-management" },
                 { name: "Maternity & Birthday", path: "/maternity" },
               ].map((item) => (
                 <li key={item.name}>

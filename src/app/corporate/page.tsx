@@ -56,35 +56,51 @@ const corporateAlbums = [
   },
 ];
 
-// --- Mock Data for Corporate Cinematography (Films/Promos) ---
+// --- Mock Data for Corporate Cinematography (Videos) ---
 const corporateFilms = [
   {
     id: 1,
     title: "Interior Design & Architecture Promo",
-    thumb:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
-    duration: "02:30",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/iEJ73IuorfI",
   },
   {
     id: 2,
     title: "Corporate Odyssey — Annual Event Highlights",
-    thumb:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=800&auto=format&fit=crop",
-    duration: "04:15",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/Cu1jOBAAh5U",
   },
   {
     id: 3,
     title: "Savor Expo 2025 — Brand Commercial",
-    thumb:
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop",
-    duration: "01:45",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/_xvPWqeKVoA",
   },
   {
     id: 4,
     title: "Workspace Culture — Recruitment Film",
-    thumb:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
-    duration: "03:20",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/S2z1qfBUPRY",
+  },
+];
+
+// --- Mock Data for Corporate Documentaries (Videos) ---
+const corporateDocumentaries = [
+  {
+    id: 1,
+    title: "Behind the Brand — Industry Leaders Documentary",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/k5OTlbekLj8",
+  },
+  {
+    id: 2,
+    title: "Sustainable Futures — Corporate Social Responsibility",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/HKe42qUTunI",
+  },
+  {
+    id: 3,
+    title: "The Journey of Innovation — Tech Doc",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/8CS0C6I7198",
+  },
+  {
+    id: 4,
+    title: "Founders' Vision — Enterprise Documentary",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/Th5iQ499OSU",
   },
 ];
 
@@ -95,9 +111,9 @@ const fadeVariants: Variants = {
 };
 
 export default function CorporatePage() {
-  const [activeTab, setActiveTab] = useState<"photography" | "cinematography">(
-    "photography",
-  );
+  const [activeTab, setActiveTab] = useState<
+    "photography" | "cinematography" | "documentary"
+  >("photography");
 
   return (
     <div className={`bg-[#3E141E] min-h-screen text-white ${jost.className}`}>
@@ -135,16 +151,16 @@ export default function CorporatePage() {
         </div>
       </section>
 
-      {/* ================= TAB SWITCHER SECTION ================= */}
+      {/* ================= TAB SWITCHER SECTION (3 Tabs) ================= */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
-        <div className="flex justify-center items-center space-x-12 md:space-x-20 border-b border-white/10 pb-8">
-          {/* Photography Tab Button */}
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 border-b border-white/10 pb-8">
+          {/* Photography Tab */}
           <button
             onClick={() => setActiveTab("photography")}
             className="relative group focus:outline-none"
           >
             <span
-              className={`text-2xl md:text-4xl tracking-widest transition-colors duration-500 ${cormorant.className} ${activeTab === "photography" ? "text-white italic" : "text-gray-400 hover:text-white"}`}
+              className={`text-xl md:text-3xl tracking-widest transition-colors duration-500 ${cormorant.className} ${activeTab === "photography" ? "text-white italic" : "text-gray-400 hover:text-white"}`}
             >
               Photography
             </span>
@@ -156,17 +172,35 @@ export default function CorporatePage() {
             )}
           </button>
 
-          {/* Cinematography Tab Button */}
+          {/* Cinematography Tab */}
           <button
             onClick={() => setActiveTab("cinematography")}
             className="relative group focus:outline-none"
           >
             <span
-              className={`text-2xl md:text-4xl tracking-widest transition-colors duration-500 ${cormorant.className} ${activeTab === "cinematography" ? "text-white italic" : "text-gray-400 hover:text-white"}`}
+              className={`text-xl md:text-3xl tracking-widest transition-colors duration-500 ${cormorant.className} ${activeTab === "cinematography" ? "text-white italic" : "text-gray-400 hover:text-white"}`}
             >
               Cinematography
             </span>
             {activeTab === "cinematography" && (
+              <motion.div
+                layoutId="activeCorporateIndicator"
+                className="absolute -bottom-8 left-0 w-full h-[2px] bg-[#cba677]"
+              />
+            )}
+          </button>
+
+          {/* Documentary Tab */}
+          <button
+            onClick={() => setActiveTab("documentary")}
+            className="relative group focus:outline-none"
+          >
+            <span
+              className={`text-xl md:text-3xl tracking-widest transition-colors duration-500 ${cormorant.className} ${activeTab === "documentary" ? "text-white italic" : "text-gray-400 hover:text-white"}`}
+            >
+              Documentary
+            </span>
+            {activeTab === "documentary" && (
               <motion.div
                 layoutId="activeCorporateIndicator"
                 className="absolute -bottom-8 left-0 w-full h-[2px] bg-[#cba677]"
@@ -178,7 +212,7 @@ export default function CorporatePage() {
         {/* ================= CONTENT DISPLAY AREA ================= */}
         <div className="mt-20">
           <AnimatePresence mode="wait">
-            {/* 1. PHOTOGRAPHY TAB CONTENT (Corporate Albums/Projects) */}
+            {/* 1. PHOTOGRAPHY TAB CONTENT */}
             {activeTab === "photography" && (
               <motion.div
                 key="corporate-photo"
@@ -190,7 +224,7 @@ export default function CorporatePage() {
               >
                 {corporateAlbums.map((album) => (
                   <div key={album.id} className="group cursor-pointer">
-                    <div className="relative aspect-[4/5] overflow-hidden bg-black/30 mb-4">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-black/30 mb-4 rounded-sm">
                       <Image
                         src={album.src}
                         alt={album.title}
@@ -217,7 +251,7 @@ export default function CorporatePage() {
               </motion.div>
             )}
 
-            {/* 2. CINEMATOGRAPHY TAB CONTENT (Corporate Promos/Videos) */}
+            {/* 2. CINEMATOGRAPHY TAB CONTENT (4-Column YouTube Embed Cards) */}
             {activeTab === "cinematography" && (
               <motion.div
                 key="corporate-cine"
@@ -225,38 +259,59 @@ export default function CorporatePage() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="grid grid-cols-1 md:grid-cols-2 gap-10"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1500px] mx-auto"
               >
                 {corporateFilms.map((film) => (
-                  <div key={film.id} className="group cursor-pointer">
-                    <div className="relative aspect-video overflow-hidden bg-black/40 mb-4 rounded-sm">
-                      <Image
-                        src={film.thumb}
-                        alt={film.title}
-                        fill
-                        className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
-                        unoptimized
-                      />
-                      {/* Play Button Overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-14 h-14 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 group-hover:bg-red-600 transition-all duration-500">
-                          <svg
-                            className="w-5 h-5 text-white fill-current ml-0.5"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </div>
-                      </div>
-                      <div className="absolute bottom-4 right-4 bg-black/80 px-2.5 py-1 text-[10px] tracking-widest text-gray-300">
-                        {film.duration}
-                      </div>
+                  <div key={film.id} className="group flex flex-col">
+                    <div className="relative aspect-video overflow-hidden bg-black/50 mb-3 rounded-sm shadow-xl border border-white/10 group-hover:border-[#cba677]/50 transition-all duration-500">
+                      <iframe
+                        src={film.youtubeEmbedUrl}
+                        title={film.title}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
                     </div>
-                    <h3
-                      className={`text-2xl text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 ${cormorant.className}`}
-                    >
-                      {film.title}
-                    </h3>
+                    {film.title && (
+                      <h3
+                        className={`text-lg text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 line-clamp-1 ${cormorant.className}`}
+                      >
+                        {film.title}
+                      </h3>
+                    )}
+                  </div>
+                ))}
+              </motion.div>
+            )}
+
+            {/* 3. DOCUMENTARY TAB CONTENT (4-Column YouTube Embed Cards) */}
+            {activeTab === "documentary" && (
+              <motion.div
+                key="corporate-doc"
+                variants={fadeVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1500px] mx-auto"
+              >
+                {corporateDocumentaries.map((doc) => (
+                  <div key={doc.id} className="group flex flex-col">
+                    <div className="relative aspect-video overflow-hidden bg-black/50 mb-3 rounded-sm shadow-xl border border-white/10 group-hover:border-[#cba677]/50 transition-all duration-500">
+                      <iframe
+                        src={doc.youtubeEmbedUrl}
+                        title={doc.title}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    {doc.title && (
+                      <h3
+                        className={`text-lg text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 line-clamp-1 ${cormorant.className}`}
+                      >
+                        {doc.title}
+                      </h3>
+                    )}
                   </div>
                 ))}
               </motion.div>
