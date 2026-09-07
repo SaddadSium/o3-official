@@ -16,7 +16,7 @@ const jost = Jost({
   weight: ["200", "300", "400", "500"],
 });
 
-// --- Mock Data for Wedding Albums (Photography) ---
+// --- Data for Wedding Albums (Photography) ---
 const weddingAlbums = [
   {
     id: 1,
@@ -56,35 +56,71 @@ const weddingAlbums = [
   },
 ];
 
-// --- Mock Data for Wedding Films (Cinematography) ---
+// --- Data for Wedding Films (Cinematography with YouTube Embed URLs) ---
 const weddingFilms = [
   {
     id: 1,
-    title: "Arnob & Tarannum — Cinematic Haldi Trailer",
+    title: "Arnob & Tarannum's Haldi Trailer",
     thumb:
       "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=800&auto=format&fit=crop",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
     duration: "03:45",
   },
   {
     id: 2,
-    title: "Tears of Joy — Full Wedding Film",
+    title: "Tears of Joy: A Wedding Story",
     thumb:
       "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     duration: "12:20",
   },
   {
     id: 3,
-    title: "Rafi & Tazri — Highlights Reel",
+    title: "Rafi & Tazri's Wedding Highlights",
     thumb:
       "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     duration: "04:15",
   },
   {
     id: 4,
-    title: "Royal Bengali Wedding — Cinematic Story",
+    title: "Cinematic Bangali Gaye Holud || Samudro & Ananna",
     thumb:
       "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     duration: "05:00",
+  },
+  {
+    id: 5,
+    title: "Wedding Moments || Sumaiya & Uday",
+    thumb:
+      "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    duration: "04:30",
+  },
+  {
+    id: 6,
+    title: "Cinematic Haldi Trailer || Sumaiya & Uday",
+    thumb:
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    duration: "03:15",
+  },
+  {
+    id: 7,
+    title: "Royal Wedding Trailer || Samir & Tulu",
+    thumb:
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    duration: "06:10",
+  },
+  {
+    id: 8,
+    title: "Royal Reception Highlights || Rahat & Nidhi",
+    thumb:
+      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    duration: "05:45",
   },
 ];
 
@@ -95,10 +131,10 @@ const fadeVariants: Variants = {
 };
 
 export default function WeddingPage() {
-  // activeTab বলতে পারে ব্যবহারকারী এখন 'photography' দেখছে নাকি 'cinematography'
   const [activeTab, setActiveTab] = useState<"photography" | "cinematography">(
     "photography",
   );
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
     <div className={`bg-[#3E141E] min-h-screen text-white ${jost.className}`}>
@@ -139,7 +175,6 @@ export default function WeddingPage() {
       {/* ================= TAB SWITCHER SECTION ================= */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="flex justify-center items-center space-x-12 md:space-x-20 border-b border-white/10 pb-8">
-          {/* Photography Tab Button */}
           <button
             onClick={() => setActiveTab("photography")}
             className="relative group focus:outline-none"
@@ -149,9 +184,6 @@ export default function WeddingPage() {
             >
               Photography
             </span>
-            <span
-              className={`absolute -bottom-8 left-0 w-full h-[2px] bg-[#cba677] transition-all duration-500 ${activeTab === "photography" ? "opacity-15 scale-x-100" : "opacity-0 scale-x-0"}`}
-            ></span>
             {activeTab === "photography" && (
               <motion.div
                 layoutId="activeIndicator"
@@ -160,7 +192,6 @@ export default function WeddingPage() {
             )}
           </button>
 
-          {/* Cinematography Tab Button */}
           <button
             onClick={() => setActiveTab("cinematography")}
             className="relative group focus:outline-none"
@@ -194,7 +225,7 @@ export default function WeddingPage() {
               >
                 {weddingAlbums.map((album) => (
                   <div key={album.id} className="group cursor-pointer">
-                    <div className="relative aspect-[4/5] overflow-hidden bg-black/30 mb-4">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-black/30 mb-4 rounded-sm">
                       <Image
                         src={album.src}
                         alt={album.title}
@@ -221,7 +252,7 @@ export default function WeddingPage() {
               </motion.div>
             )}
 
-            {/* 2. CINEMATOGRAPHY TAB CONTENT (Videos) */}
+            {/* 2. CINEMATOGRAPHY TAB CONTENT (4-Column YouTube Cards) */}
             {activeTab === "cinematography" && (
               <motion.div
                 key="cinematography"
@@ -229,35 +260,42 @@ export default function WeddingPage() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="grid grid-cols-1 md:grid-cols-2 gap-10"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1500px] mx-auto"
               >
                 {weddingFilms.map((film) => (
-                  <div key={film.id} className="group cursor-pointer">
-                    <div className="relative aspect-video overflow-hidden bg-black/40 mb-4 rounded-sm">
+                  <div
+                    key={film.id}
+                    onClick={() => setSelectedVideo(film.youtubeUrl)}
+                    className="group cursor-pointer"
+                  >
+                    <div className="relative aspect-video overflow-hidden bg-black/50 mb-3 rounded-sm shadow-xl border border-white/10 group-hover:border-[#cba677]/50 transition-all duration-500">
                       <Image
                         src={film.thumb}
                         alt={film.title}
                         fill
-                        className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                        className="object-cover opacity-85 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                         unoptimized
                       />
-                      {/* Play Button Overlay */}
+                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500"></div>
+
+                      {/* YouTube Red Play Button Overlay */}
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-14 h-14 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 group-hover:bg-red-600 transition-all duration-500">
+                        <div className="w-12 h-9 bg-[#FF0000] rounded-xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-red-700 transition-all duration-500">
                           <svg
-                            className="w-5 h-5 text-white fill-current ml-0.5"
+                            className="w-4 h-4 text-white fill-current ml-0.5"
                             viewBox="0 0 24 24"
                           >
                             <path d="M8 5v14l11-7z" />
                           </svg>
                         </div>
                       </div>
-                      <div className="absolute bottom-4 right-4 bg-black/80 px-2.5 py-1 text-[10px] tracking-widest text-gray-300">
+
+                      <div className="absolute bottom-2 right-2 bg-black/80 px-2 py-0.5 text-[9px] tracking-widest text-gray-300">
                         {film.duration}
                       </div>
                     </div>
                     <h3
-                      className={`text-2xl text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 ${cormorant.className}`}
+                      className={`text-lg text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 line-clamp-1 ${cormorant.className}`}
                     >
                       {film.title}
                     </h3>
@@ -268,6 +306,38 @@ export default function WeddingPage() {
           </AnimatePresence>
         </div>
       </section>
+
+      {/* ================= YOUTUBE VIDEO MODAL PLAYER ================= */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <div
+              className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl border border-white/20"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/60 hover:bg-[#cba677] text-white hover:text-[#3E141E] rounded-full flex items-center justify-center text-xl transition-all duration-300"
+              >
+                ✕
+              </button>
+              <iframe
+                src={`${selectedVideo}?autoplay=1`}
+                title="YouTube Video Player"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
