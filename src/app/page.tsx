@@ -181,7 +181,7 @@ export default function Home() {
       setCurrentSlide((prev) =>
         prev === heroImages.length - 1 ? 0 : prev + 1,
       );
-    }, 2000);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
@@ -189,7 +189,7 @@ export default function Home() {
   useEffect(() => {
     const reviewTimer = setInterval(() => {
       setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
-    }, 3000);
+    }, 4000);
     return () => clearInterval(reviewTimer);
   }, []);
 

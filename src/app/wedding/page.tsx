@@ -56,71 +56,47 @@ const weddingAlbums = [
   },
 ];
 
-// --- Data for Wedding Films (Cinematography with YouTube Embed URLs) ---
+// --- Data for Wedding Films (Direct YouTube Embed URLs) ---
 const weddingFilms = [
   {
     id: 1,
     title: "Arnob & Tarannum's Haldi Trailer",
-    thumb:
-      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=800&auto=format&fit=crop",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
-    duration: "03:45",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/iEJ73IuorfI",
   },
   {
     id: 2,
     title: "Tears of Joy: A Wedding Story",
-    thumb:
-      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    duration: "12:20",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/Cu1jOBAAh5U",
   },
   {
     id: 3,
     title: "Rafi & Tazri's Wedding Highlights",
-    thumb:
-      "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    duration: "04:15",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/_xvPWqeKVoA",
   },
   {
     id: 4,
     title: "Cinematic Bangali Gaye Holud || Samudro & Ananna",
-    thumb:
-      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    duration: "05:00",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/S2z1qfBUPRY",
   },
   {
     id: 5,
     title: "Wedding Moments || Sumaiya & Uday",
-    thumb:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    duration: "04:30",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/k5OTlbekLj8",
   },
   {
     id: 6,
     title: "Cinematic Haldi Trailer || Sumaiya & Uday",
-    thumb:
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    duration: "03:15",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/HKe42qUTunI",
   },
   {
     id: 7,
     title: "Royal Wedding Trailer || Samir & Tulu",
-    thumb:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    duration: "06:10",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/8CS0C6I7198",
   },
   {
     id: 8,
     title: "Royal Reception Highlights || Rahat & Nidhi",
-    thumb:
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    duration: "05:45",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/Th5iQ499OSU",
   },
 ];
 
@@ -134,7 +110,6 @@ export default function WeddingPage() {
   const [activeTab, setActiveTab] = useState<"photography" | "cinematography">(
     "photography",
   );
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
     <div className={`bg-[#3E141E] min-h-screen text-white ${jost.className}`}>
@@ -252,7 +227,7 @@ export default function WeddingPage() {
               </motion.div>
             )}
 
-            {/* 2. CINEMATOGRAPHY TAB CONTENT (4-Column YouTube Cards) */}
+            {/* 2. CINEMATOGRAPHY TAB CONTENT (Direct Embedded YouTube Players) */}
             {activeTab === "cinematography" && (
               <motion.div
                 key="cinematography"
@@ -263,36 +238,15 @@ export default function WeddingPage() {
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1500px] mx-auto"
               >
                 {weddingFilms.map((film) => (
-                  <div
-                    key={film.id}
-                    onClick={() => setSelectedVideo(film.youtubeUrl)}
-                    className="group cursor-pointer"
-                  >
+                  <div key={film.id} className="group flex flex-col">
                     <div className="relative aspect-video overflow-hidden bg-black/50 mb-3 rounded-sm shadow-xl border border-white/10 group-hover:border-[#cba677]/50 transition-all duration-500">
-                      <Image
-                        src={film.thumb}
-                        alt={film.title}
-                        fill
-                        className="object-cover opacity-85 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
-                        unoptimized
-                      />
-                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500"></div>
-
-                      {/* YouTube Red Play Button Overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-12 h-9 bg-[#FF0000] rounded-xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-red-700 transition-all duration-500">
-                          <svg
-                            className="w-4 h-4 text-white fill-current ml-0.5"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </div>
-                      </div>
-
-                      <div className="absolute bottom-2 right-2 bg-black/80 px-2 py-0.5 text-[9px] tracking-widest text-gray-300">
-                        {film.duration}
-                      </div>
+                      <iframe
+                        src={film.youtubeEmbedUrl}
+                        title={film.title}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
                     </div>
                     <h3
                       className={`text-lg text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 line-clamp-1 ${cormorant.className}`}
@@ -306,38 +260,6 @@ export default function WeddingPage() {
           </AnimatePresence>
         </div>
       </section>
-
-      {/* ================= YOUTUBE VIDEO MODAL PLAYER ================= */}
-      <AnimatePresence>
-        {selectedVideo && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
-            onClick={() => setSelectedVideo(null)}
-          >
-            <div
-              className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl border border-white/20"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setSelectedVideo(null)}
-                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/60 hover:bg-[#cba677] text-white hover:text-[#3E141E] rounded-full flex items-center justify-center text-xl transition-all duration-300"
-              >
-                ✕
-              </button>
-              <iframe
-                src={`${selectedVideo}?autoplay=1`}
-                title="YouTube Video Player"
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
