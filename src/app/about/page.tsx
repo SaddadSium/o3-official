@@ -61,74 +61,87 @@ const coFounders = [
     id: 1,
     name: "Md. Nakib Nizam",
     role: "Founder & CEO",
-    image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
-    fb: "#",
-    insta: "#",
-    web: "#",
+    image: "/images/about/nakib.jpg",
+    fb: "https://www.facebook.com/mdnakibnizam",
+    insta: "https://www.instagram.com/the_halaal_lad/",
   },
   {
     id: 2,
     name: "A.S.M. Sium",
     role: "Creative Director",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",
-    fb: "#",
-    insta: "#",
-    web: "#",
+    image: "/images/about/sium.webp",
+    fb: "https://www.facebook.com/saddadsium.official/",
+    insta: "https://www.instagram.com/saddad_sium/",
+    web: "https://sium-photography-portfolio.vercel.app/",
   },
 ];
 
 const teamMembers = [
   {
     id: 3,
-    name: "Nusrat Jahan",
-    role: "Senior Production Designer",
-    image:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
-    fb: "#",
-    insta: "#",
-    web: "#",
+    name: "Murad Hossain",
+    role: "HR & Admin",
+    image: "/images/about/murad.jpg",
   },
   {
     id: 4,
-    name: "Rahim Chowdhury",
-    role: "Lead Event Architect",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop",
-    fb: "#",
-    insta: "#",
-    web: "#",
+    name: "Ashhab Azim",
+    role: "Executive - Event Activation & Execution",
+    image: "/images/about/amit.jpg",
   },
   {
     id: 5,
-    name: "Sadia Islam",
-    role: "Creative Brand Storyteller",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
-    fb: "#",
-    insta: "#",
-    web: "#",
+    name: "A.B. Siddik",
+    role: "Executive - Branding",
+    image: "/images/about/siddik.jpeg",
   },
   {
     id: 6,
-    name: "Fahim Hasan",
-    role: "Senior Lead Photographer",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop",
-    fb: "#",
-    insta: "#",
-    web: "#",
+    name: "Ariful Islam Saurov",
+    role: "Executive - Brand & Client Relations",
+    image: "/images/about/saurov.jpeg",
   },
   {
     id: 7,
-    name: "Mehnaz Tabassum",
-    role: "Post-Production Head",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop",
-    fb: "#",
-    insta: "#",
-    web: "#",
+    name: "Sajib Rahman",
+    role: "Core Photographer - Weddings & Life Milestones",
+    image: "/images/about/sajib.jpeg",
+  },
+  {
+    id: 8,
+    name: "Sheikh Farid",
+    role: "Lead Cinematographer - Weddings & Life Milestones",
+    image: "/images/about/farid.jpeg",
+  },
+  {
+    id: 9,
+    name: "Rasel Hossain",
+    role: "Lead Cinematographer - Corporate & Commercial",
+    image: "/images/about/rasel.jpg",
+  },
+  {
+    id: 10,
+    name: "Alamgir Hossain",
+    role: "Lead Cinematographer",
+    image: "/images/about/alamgir.jpeg",
+  },
+  {
+    id: 11,
+    name: "Mamun Sheikh",
+    role: "Core Cinematographer - Corporate & Commercial",
+    image: "/images/about/mamun.jpeg",
+  },
+  {
+    id: 12,
+    name: "Wasid Ahmed Shafin",
+    role: "Executive - Event Activation & Execution",
+    image: "/images/about/shafin.jpg",
+  },
+  {
+    id: 13,
+    name: "Rafsan Ahemd Siam",
+    role: "Visualizer",
+    image: "/images/about/siam.jpeg",
   },
 ];
 
@@ -169,7 +182,7 @@ export default function AboutPage() {
           className="absolute inset-0 w-full h-full"
         >
           <Image
-            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069&auto=format&fit=crop"
+            src="/images/about/aboutcover.webp"
             alt="The House of Ocean of Orchid"
             fill
             className="object-cover"
@@ -257,7 +270,7 @@ export default function AboutPage() {
           <h2
             className={`text-4xl md:text-5xl text-white tracking-wider ${cormorant.className}`}
           >
-            The Co-Founders
+            The Visionaries
           </h2>
           <div className="w-12 h-[1px] bg-[#cba677] mx-auto mt-4"></div>
         </motion.div>
@@ -269,88 +282,99 @@ export default function AboutPage() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto"
         >
-          {coFounders.map((founder) => (
-            <motion.div
-              key={founder.id}
-              variants={sectionVariants}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.4 }}
-              className="group text-center"
-            >
-              <div className="relative aspect-[3/4] overflow-hidden mb-6 bg-black/40 shadow-2xl rounded-sm">
-                <Image
-                  src={founder.image}
-                  alt={founder.name}
-                  fill
-                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                  unoptimized
-                />
-
-                <div className="absolute inset-0 bg-[#3E141E]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center space-x-4">
-                  <a
-                    href={founder.fb}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook"
-                    className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
-                  >
-                    <svg
-                      className="w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
-                    </svg>
-                  </a>
-                  <a
-                    href={founder.insta}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                    className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
-                  >
-                    <svg
-                      className="w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </a>
-                  <a
-                    href={founder.web}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Website"
-                    className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
-                  >
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <h3
-                className={`text-2xl text-white tracking-wide ${cormorant.className}`}
+          {coFounders.map((founder) => {
+            const hasSocials = founder.fb || founder.insta || founder.web;
+            return (
+              <motion.div
+                key={founder.id}
+                variants={sectionVariants}
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.4 }}
+                className="group text-center"
               >
-                {founder.name}
-              </h3>
-              <p className="text-[11px] text-[#cba677] tracking-[0.2em] uppercase mt-1 font-light">
-                {founder.role}
-              </p>
-            </motion.div>
-          ))}
+                <div className="relative aspect-[3/4] overflow-hidden mb-6 bg-black/40 shadow-2xl rounded-sm">
+                  <Image
+                    src={founder.image}
+                    alt={founder.name}
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                    unoptimized
+                  />
+
+                  {hasSocials && (
+                    <div className="absolute inset-0 bg-[#3E141E]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center space-x-4">
+                      {founder.fb && (
+                        <a
+                          href={founder.fb}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Facebook"
+                          className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
+                        >
+                          <svg
+                            className="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                          </svg>
+                        </a>
+                      )}
+                      {founder.insta && (
+                        <a
+                          href={founder.insta}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Instagram"
+                          className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
+                        >
+                          <svg
+                            className="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </a>
+                      )}
+                      {founder.web && (
+                        <a
+                          href={founder.web}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Website"
+                          className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
+                        >
+                          <svg
+                            className="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+                <h3
+                  className={`text-2xl text-white tracking-wide ${cormorant.className}`}
+                >
+                  {founder.name}
+                </h3>
+                <p className="text-[11px] text-[#cba677] tracking-[0.2em] uppercase mt-1 font-light">
+                  {founder.role}
+                </p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </section>
 
@@ -381,88 +405,99 @@ export default function AboutPage() {
           viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8"
         >
-          {teamMembers.map((member) => (
-            <motion.div
-              key={member.id}
-              variants={sectionVariants}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.3 }}
-              className="group text-center"
-            >
-              <div className="relative aspect-[3/4] overflow-hidden mb-4 bg-black/40 rounded-sm shadow-lg">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  unoptimized
-                />
-
-                <div className="absolute inset-0 bg-[#3E141E]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center space-x-3">
-                  <a
-                    href={member.fb}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook"
-                    className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
-                    </svg>
-                  </a>
-                  <a
-                    href={member.insta}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                    className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </a>
-                  <a
-                    href={member.web}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Website"
-                    className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <h3
-                className={`text-xl text-white tracking-wide ${cormorant.className}`}
+          {teamMembers.map((member: any) => {
+            const hasSocials = member.fb || member.insta || member.web;
+            return (
+              <motion.div
+                key={member.id}
+                variants={sectionVariants}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.3 }}
+                className="group text-center"
               >
-                {member.name}
-              </h3>
-              <p className="text-[10px] text-[#cba677] tracking-[0.2em] uppercase mt-1 font-light">
-                {member.role}
-              </p>
-            </motion.div>
-          ))}
+                <div className="relative aspect-[3/4] overflow-hidden mb-4 bg-black/40 rounded-sm shadow-lg">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    unoptimized
+                  />
+
+                  {hasSocials && (
+                    <div className="absolute inset-0 bg-[#3E141E]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center space-x-3">
+                      {member.fb && (
+                        <a
+                          href={member.fb}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Facebook"
+                          className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
+                        >
+                          <svg
+                            className="w-4 h-4"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                          </svg>
+                        </a>
+                      )}
+                      {member.insta && (
+                        <a
+                          href={member.insta}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Instagram"
+                          className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
+                        >
+                          <svg
+                            className="w-4 h-4"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </a>
+                      )}
+                      {member.web && (
+                        <a
+                          href={member.web}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Website"
+                          className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
+                        >
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+                <h3
+                  className={`text-xl text-white tracking-wide ${cormorant.className}`}
+                >
+                  {member.name}
+                </h3>
+                <p className="text-[10px] text-[#cba677] tracking-[0.2em] uppercase mt-1 font-light">
+                  {member.role}
+                </p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </section>
 

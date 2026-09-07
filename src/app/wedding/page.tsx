@@ -16,43 +16,247 @@ const jost = Jost({
   weight: ["200", "300", "400", "500"],
 });
 
-// --- Data for Wedding Albums (Photography) ---
+// --- Data for Wedding Albums with Inner Photos ---
 const weddingAlbums = [
   {
     id: 1,
-    title: "Era & Emran — Royal Wedding",
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop",
-    count: "45 Photos",
+    title: "Deen & Laiba — Royal Wedding",
+    src: "/images/wedding/weddingalbum1/C1.jpg",
+    count: "6 Photos",
+    photos: [
+      "/images/wedding/weddingalbum1/P1.jpg",
+      "/images/wedding/weddingalbum1/P2.jpg",
+      "/images/wedding/weddingalbum1/P3.jpg",
+      "/images/wedding/weddingalbum1/P4.jpg",
+      "/images/wedding/weddingalbum1/P5.jpg",
+      "/images/wedding/weddingalbum1/P6.jpg",
+    ],
   },
   {
     id: 2,
-    title: "Azfar & Sadiia — Haldi Night",
-    src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1000&auto=format&fit=crop",
-    count: "30 Photos",
+    title: "Tanvir & Sanjida — Intimate Akhd",
+    src: "/images/wedding/weddingalbum1/C1.jpg",
+    count: "6 Photos",
+    photos: [
+      "/images/wedding/weddingalbum1/P1.jpg",
+      "/images/wedding/weddingalbum1/P2.jpg",
+      "/images/wedding/weddingalbum1/P3.jpg",
+      "/images/wedding/weddingalbum1/P4.jpg",
+      "/images/wedding/weddingalbum1/P5.jpg",
+      "/images/wedding/weddingalbum1/P6.jpg",
+    ],
   },
   {
     id: 3,
-    title: "Hamza & Ruksad — Reception",
-    src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1000&auto=format&fit=crop",
-    count: "50 Photos",
+    title: "Munim & Tasnim — Post Wedding",
+    src: "/images/wedding/weddingalbum1/C1.jpg",
+    count: "6 Photos",
+    photos: [
+      "/images/wedding/weddingalbum1/P1.jpg",
+      "/images/wedding/weddingalbum1/P2.jpg",
+      "/images/wedding/weddingalbum1/P3.jpg",
+      "/images/wedding/weddingalbum1/P4.jpg",
+      "/images/wedding/weddingalbum1/P5.jpg",
+      "/images/wedding/weddingalbum1/P6.jpg",
+    ],
   },
   {
     id: 4,
-    title: "Sazzad & Nowreen — Intimate Vows",
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop",
-    count: "40 Photos",
+    title: "Swapnil & Tomori — Pre Wedding",
+    src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1000&auto=format&fit=crop",
+    count: "4 Photos",
+    photos: [
+      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
+    ],
   },
   {
     id: 5,
-    title: "Samara & Anik — Traditional Bengali",
-    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1000&auto=format&fit=crop",
-    count: "60 Photos",
+    title: "Tanvir & Sanjida — Royal Reception",
+    src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1000&auto=format&fit=crop",
+    count: "4 Photos",
+    photos: [
+      "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop",
+    ],
   },
   {
     id: 6,
-    title: "Tahsin & Mim — Sunset Portrait",
+    title: "Monia's Mehendi Celebration",
+    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop",
+    count: "4 Photos",
+    photos: [
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1200&auto=format&fit=crop",
+    ],
+  },
+  {
+    id: 7,
+    title: "Moon & Trina - Wedding Series",
+    src: "/images/wedding/weddingalbum7/C7.jpg",
+    count: "24 Photos",
+    photos: [
+      "/images/wedding/weddingalbum7/P1.jpg",
+      "/images/wedding/weddingalbum7/P2.jpg",
+      "/images/wedding/weddingalbum7/P3.jpg",
+      "/images/wedding/weddingalbum7/P4.jpg",
+      "/images/wedding/weddingalbum7/P5.jpg",
+      "/images/wedding/weddingalbum7/P6.jpg",
+      "/images/wedding/weddingalbum7/P7.jpg",
+      "/images/wedding/weddingalbum7/P8.jpg",
+      "/images/wedding/weddingalbum7/P9.jpg",
+      "/images/wedding/weddingalbum7/P10.jpg",
+      "/images/wedding/weddingalbum7/P11.jpg",
+      "/images/wedding/weddingalbum7/P12.jpg",
+      "/images/wedding/weddingalbum7/P13.jpg",
+      "/images/wedding/weddingalbum7/P14.jpg",
+      "/images/wedding/weddingalbum7/P15.jpg",
+      "/images/wedding/weddingalbum7/P16.jpg",
+      "/images/wedding/weddingalbum7/P17.jpg",
+      "/images/wedding/weddingalbum7/P18.jpg",
+      "/images/wedding/weddingalbum7/P19.jpg",
+      "/images/wedding/weddingalbum7/P20.jpg",
+      "/images/wedding/weddingalbum7/P21.jpg",
+      "/images/wedding/weddingalbum7/P22.jpg",
+      "/images/wedding/weddingalbum7/P23.jpg",
+      "/images/wedding/weddingalbum7/P24.jpg",
+    ],
+  },
+  {
+    id: 8,
+    title: "Deen & Laiba — Haldi Celebration",
     src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1000&auto=format&fit=crop",
-    count: "35 Photos",
+    count: "4 Photos",
+    photos: [
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1200&auto=format&fit=crop",
+    ],
+  },
+  {
+    id: 9,
+    title: "Samudro & Ananna — Hindu Reception",
+    src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1000&auto=format&fit=crop",
+    count: "4 Photos",
+    photos: [
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1200&auto=format&fit=crop",
+    ],
+  },
+  {
+    id: 10,
+    title: "Arnob & Tarannum — Reception",
+    src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1000&auto=format&fit=crop",
+    count: "4 Photos",
+    photos: [
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1200&auto=format&fit=crop",
+    ],
+  },
+  {
+    id: 11,
+    title: "Nahid & Tasnim — Wedding Highlights",
+    src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1000&auto=format&fit=crop",
+    count: "4 Photos",
+    photos: [
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1200&auto=format&fit=crop",
+    ],
+  },
+  {
+    id: 12,
+    title: "Tanha's Wedding Highlights",
+    src: "/images/wedding/weddingalbum12/C12.jpg",
+    count: "12 Photos",
+    photos: [
+      "/images/wedding/weddingalbum12/P1.jpg",
+      "/images/wedding/weddingalbum12/P2.jpg",
+      "/images/wedding/weddingalbum12/P3.jpg",
+      "/images/wedding/weddingalbum12/P4.jpg",
+      "/images/wedding/weddingalbum12/P5.jpg",
+      "/images/wedding/weddingalbum12/P6.jpg",
+      "/images/wedding/weddingalbum12/P7.jpg",
+      "/images/wedding/weddingalbum12/P8.jpg",
+      "/images/wedding/weddingalbum12/P9.jpg",
+      "/images/wedding/weddingalbum12/P10.jpg",
+      "/images/wedding/weddingalbum12/P11.jpg",
+      "/images/wedding/weddingalbum12/P12.jpg",
+    ],
+  },
+  {
+    id: 13,
+    title: "Roshni's Haldi Celebration",
+    src: "/images/wedding/weddingalbum13/C13.jpg",
+    count: "9 Photos",
+    photos: [
+      "/images/wedding/weddingalbum13/P1.jpg",
+      "/images/wedding/weddingalbum13/P2.jpg",
+      "/images/wedding/weddingalbum13/P3.jpg",
+      "/images/wedding/weddingalbum13/P4.jpg",
+      "/images/wedding/weddingalbum13/P5.jpg",
+      "/images/wedding/weddingalbum13/P6.jpg",
+      "/images/wedding/weddingalbum13/P7.jpg",
+      "/images/wedding/weddingalbum13/P8.jpg",
+      "/images/wedding/weddingalbum13/P9.jpg",
+    ],
+  },
+  {
+    id: 14,
+    title: "Proma's Haldi Celebration",
+    src: "/images/wedding/weddingalbum14/C14.jpg",
+    count: "4 Photos",
+    photos: [
+      "/images/wedding/weddingalbum14/P1.jpg",
+      "/images/wedding/weddingalbum14/P2.jpg",
+      "/images/wedding/weddingalbum14/P3.jpg",
+      "/images/wedding/weddingalbum14/P4.jpg",
+    ],
+  },
+  {
+    id: 15,
+    title: "Atik & Auhona - Intimate Wedding",
+    src: "/images/wedding/weddingalbum15/C15.jpg",
+    count: "25 Photos",
+    photos: [
+      "/images/wedding/weddingalbum15/P1.jpg",
+      "/images/wedding/weddingalbum15/P2.jpg",
+      "/images/wedding/weddingalbum15/P3.jpg",
+      "/images/wedding/weddingalbum15/P4.jpg",
+      "/images/wedding/weddingalbum15/P5.jpg",
+      "/images/wedding/weddingalbum15/P6.jpg",
+      "/images/wedding/weddingalbum15/P7.jpg",
+      "/images/wedding/weddingalbum15/P8.jpg",
+      "/images/wedding/weddingalbum15/P9.jpg",
+      "/images/wedding/weddingalbum15/P10.jpg",
+      "/images/wedding/weddingalbum15/P11.jpg",
+      "/images/wedding/weddingalbum15/P12.jpg",
+      "/images/wedding/weddingalbum15/P13.jpg",
+      "/images/wedding/weddingalbum15/P14.jpg",
+      "/images/wedding/weddingalbum15/P15.jpg",
+      "/images/wedding/weddingalbum15/P16.jpg",
+      "/images/wedding/weddingalbum15/P17.jpg",
+      "/images/wedding/weddingalbum15/P18.jpg",
+      "/images/wedding/weddingalbum15/P19.jpg",
+      "/images/wedding/weddingalbum15/P20.jpg",
+      "/images/wedding/weddingalbum15/P21.jpg",
+      "/images/wedding/weddingalbum15/P22.jpg",
+      "/images/wedding/weddingalbum15/P23.jpg",
+      "/images/wedding/weddingalbum15/P24.jpg",
+      "/images/wedding/weddingalbum15/P25.jpg",
+    ],
   },
 ];
 
@@ -110,6 +314,10 @@ export default function WeddingPage() {
   const [activeTab, setActiveTab] = useState<"photography" | "cinematography">(
     "photography",
   );
+  const [selectedAlbum, setSelectedAlbum] = useState<
+    (typeof weddingAlbums)[0] | null
+  >(null);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   return (
     <div className={`bg-[#3E141E] min-h-screen text-white ${jost.className}`}>
@@ -151,7 +359,10 @@ export default function WeddingPage() {
       <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="flex justify-center items-center space-x-12 md:space-x-20 border-b border-white/10 pb-8">
           <button
-            onClick={() => setActiveTab("photography")}
+            onClick={() => {
+              setActiveTab("photography");
+              setSelectedAlbum(null);
+            }}
             className="relative group focus:outline-none"
           >
             <span
@@ -168,7 +379,10 @@ export default function WeddingPage() {
           </button>
 
           <button
-            onClick={() => setActiveTab("cinematography")}
+            onClick={() => {
+              setActiveTab("cinematography");
+              setSelectedAlbum(null);
+            }}
             className="relative group focus:outline-none"
           >
             <span
@@ -188,10 +402,10 @@ export default function WeddingPage() {
         {/* ================= CONTENT DISPLAY AREA ================= */}
         <div className="mt-20">
           <AnimatePresence mode="wait">
-            {/* 1. PHOTOGRAPHY TAB CONTENT (Albums) */}
-            {activeTab === "photography" && (
+            {/* 1. PHOTOGRAPHY TAB CONTENT */}
+            {activeTab === "photography" && !selectedAlbum && (
               <motion.div
-                key="photography"
+                key="photography-list"
                 variants={fadeVariants}
                 initial="hidden"
                 animate="visible"
@@ -199,7 +413,11 @@ export default function WeddingPage() {
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               >
                 {weddingAlbums.map((album) => (
-                  <div key={album.id} className="group cursor-pointer">
+                  <div
+                    key={album.id}
+                    onClick={() => setSelectedAlbum(album)}
+                    className="group cursor-pointer"
+                  >
                     <div className="relative aspect-[4/5] overflow-hidden bg-black/30 mb-4 rounded-sm">
                       <Image
                         src={album.src}
@@ -208,9 +426,9 @@ export default function WeddingPage() {
                         className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                         unoptimized
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#3E141E]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                        <span className="text-[9px] uppercase tracking-[0.3em] text-[#cba677] mb-1">
-                          View Album
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#3E141E]/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span className="text-[10px] uppercase tracking-[0.3em] text-[#cba677] mb-1 font-medium">
+                          View Album ↗
                         </span>
                         <span className="text-xs uppercase tracking-[0.2em] text-white font-light">
                           {album.count}
@@ -227,7 +445,61 @@ export default function WeddingPage() {
               </motion.div>
             )}
 
-            {/* 2. CINEMATOGRAPHY TAB CONTENT (Direct Embedded YouTube Players) */}
+            {/* INSIDE ALBUM VIEW (Pinterest Masonry Layout - Natural Sizes) */}
+            {activeTab === "photography" && selectedAlbum && (
+              <motion.div
+                key="inside-album"
+                variants={fadeVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="space-y-10"
+              >
+                {/* Back Button & Album Title Header */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-white/10 pb-6 gap-4">
+                  <div>
+                    <button
+                      onClick={() => setSelectedAlbum(null)}
+                      className="text-xs uppercase tracking-[0.25em] text-[#cba677] hover:text-white transition-colors flex items-center gap-2 mb-2"
+                    >
+                      ← Back to All Albums
+                    </button>
+                    <h2
+                      className={`text-3xl md:text-5xl text-white ${cormorant.className}`}
+                    >
+                      {selectedAlbum.title}
+                    </h2>
+                  </div>
+                  <span className="text-xs uppercase tracking-[0.2em] text-gray-300">
+                    {selectedAlbum.count} Available
+                  </span>
+                </div>
+
+                {/* Masonry Grid (Preserves natural photo dimensions without cropping) */}
+                <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance] box-border">
+                  {selectedAlbum.photos.map((photo, index) => (
+                    <div
+                      key={index}
+                      onClick={() => setLightboxImage(photo)}
+                      className="mb-6 break-inside-avoid relative overflow-hidden rounded-sm group cursor-pointer bg-black/40 border border-white/10 shadow-lg"
+                    >
+                      <img
+                        src={photo}
+                        alt={`${selectedAlbum.title} - ${index + 1}`}
+                        className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span className="text-xs uppercase tracking-[0.25em] text-[#cba677] bg-black/70 px-4 py-2 border border-[#cba677]/40 rounded-sm">
+                          Zoom Photo
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {/* 2. CINEMATOGRAPHY TAB CONTENT */}
             {activeTab === "cinematography" && (
               <motion.div
                 key="cinematography"
@@ -248,11 +520,13 @@ export default function WeddingPage() {
                         allowFullScreen
                       ></iframe>
                     </div>
-                    <h3
-                      className={`text-lg text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 line-clamp-1 ${cormorant.className}`}
-                    >
-                      {film.title}
-                    </h3>
+                    {film.title && (
+                      <h3
+                        className={`text-lg text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 line-clamp-1 ${cormorant.className}`}
+                      >
+                        {film.title}
+                      </h3>
+                    )}
                   </div>
                 ))}
               </motion.div>
@@ -260,6 +534,40 @@ export default function WeddingPage() {
           </AnimatePresence>
         </div>
       </section>
+
+      {/* ================= FULLSCREEN LIGHTBOX MODAL ================= */}
+      <AnimatePresence>
+        {lightboxImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={() => setLightboxImage(null)}
+          >
+            <div
+              className="relative w-full max-w-5xl h-[85vh] flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setLightboxImage(null)}
+                className="absolute -top-12 right-0 z-10 w-10 h-10 bg-white/10 hover:bg-[#cba677] text-white hover:text-[#3E141E] rounded-full flex items-center justify-center text-xl transition-all duration-300"
+              >
+                ✕
+              </button>
+              <div className="relative w-full h-full">
+                <Image
+                  src={lightboxImage}
+                  alt="Expanded Wedding Photo"
+                  fill
+                  className="object-contain"
+                  unoptimized
+                />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
