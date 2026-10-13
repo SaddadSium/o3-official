@@ -41,7 +41,7 @@ export const weddingAlbums = [
     category: "Reception",
     src: "/images/wedding/covers/R1.jpg",
     coverSrc: "/images/wedding/weddingalbum2/P26.jpg",
-    count: "6 Photos",
+    count: "32 Photos",
     photos: [
       "/images/wedding/weddingalbum2/P1.jpg",
       "/images/wedding/weddingalbum2/P2.jpg",
