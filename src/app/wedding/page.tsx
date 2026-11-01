@@ -106,10 +106,27 @@ export const weddingAlbums = [
     id: "5",
     title: "Prova's Mehendi Celebration",
     category: "Haldi",
-    src: "/images/wedding/covers/H5.jpg",
+    src: "/images/wedding/weddingalbum5/P8.jpg",
     coverSrc: "",
-    count: "4 Photos",
-    photos: ["", "", "", ""],
+    count: "16 Photos",
+    photos: [
+      "/images/wedding/weddingalbum5/P1.jpg",
+      "/images/wedding/weddingalbum5/P2.jpg",
+      "/images/wedding/weddingalbum5/P3.jpg",
+      "/images/wedding/weddingalbum5/P4.jpg",
+      "/images/wedding/weddingalbum5/P5.jpg",
+      "/images/wedding/weddingalbum5/P6.jpg",
+      "/images/wedding/weddingalbum5/P7.jpg",
+      "/images/wedding/weddingalbum5/P8.jpg",
+      "/images/wedding/weddingalbum5/P9.jpg",
+      "/images/wedding/weddingalbum5/P10.jpg",
+      "/images/wedding/weddingalbum5/P11.jpg",
+      "/images/wedding/weddingalbum5/P12.jpg",
+      "/images/wedding/weddingalbum5/P13.jpg",
+      "/images/wedding/weddingalbum5/P14.jpg",
+      "/images/wedding/weddingalbum5/P15.jpg",
+      "/images/wedding/weddingalbum5/P16.jpg",
+    ],
   },
   {
     id: "6",
@@ -155,7 +172,7 @@ export const weddingAlbums = [
   },
   {
     id: "7",
-    title: "Moon & Trina - Wedding Series",
+    title: "Moon & Trina — Wedding Series",
     category: "Muslim Wedding",
     src: "/images/wedding/covers/C7.jpg",
     coverSrc: "",
@@ -335,7 +352,7 @@ export const weddingAlbums = [
   },
   {
     id: "15",
-    title: "Atik & Auhona - Intimate Wedding",
+    title: "Atik & Auhona — Intimate Wedding",
     category: "Muslim Wedding",
     src: "/images/wedding/weddingalbum15/C15.jpg",
     coverSrc: "/images/wedding/weddingalbum15/P2.jpg",
@@ -370,7 +387,7 @@ export const weddingAlbums = [
   },
   {
     id: "16",
-    title: "Arnob & Tarannum - Haldi Highlights",
+    title: "Arnob & Tarannum — Haldi Highlights",
     category: "Haldi",
     src: "/images/wedding/covers/H16.jpg",
     coverSrc: "/images/wedding/weddingalbum16/P9.jpg",
@@ -403,7 +420,7 @@ export const weddingAlbums = [
   },
   {
     id: "17",
-    title: "Samudro & Ananna - Reception Highlights",
+    title: "Samudro & Ananna —  Reception Highlights",
     category: "Reception",
     src: "/images/wedding/covers/R9.jpg",
     coverSrc: "/images/wedding/weddingalbum17/P1.jpg",
@@ -438,7 +455,7 @@ export const weddingAlbums = [
   },
   {
     id: "18",
-    title: "Tanvir & Kakon - Intimate Akhd",
+    title: "Tanvir & Kakon — Intimate Akhd",
     category: "Muslim Wedding",
     src: "/images/wedding/covers/W18.jpg",
     coverSrc: "/images/wedding/weddingalbum18/P11.jpg",
@@ -471,24 +488,24 @@ export const weddingAlbums = [
     id: "19",
     title: "Roshni's Haldi Celebration",
     category: "Haldi",
-    src: "/images/wedding/covers/C13.jpg",
+    src: "/images/wedding/weddingalbum19/P4.jpg",
     coverSrc: "",
     count: "9 Photos",
     photos: [
-      "/images/wedding/weddingalbum13/P1.jpg",
-      "/images/wedding/weddingalbum13/P2.jpg",
-      "/images/wedding/weddingalbum13/P3.jpg",
-      "/images/wedding/weddingalbum13/P4.jpg",
-      "/images/wedding/weddingalbum13/P5.jpg",
-      "/images/wedding/weddingalbum13/P6.jpg",
-      "/images/wedding/weddingalbum13/P7.jpg",
-      "/images/wedding/weddingalbum13/P8.jpg",
-      "/images/wedding/weddingalbum13/P9.jpg",
+      "/images/wedding/weddingalbum19/P1.jpg",
+      "/images/wedding/weddingalbum19/P2.jpg",
+      "/images/wedding/weddingalbum19/P3.jpg",
+      "/images/wedding/weddingalbum19/P4.jpg",
+      "/images/wedding/weddingalbum19/P5.jpg",
+      "/images/wedding/weddingalbum19/P6.jpg",
+      "/images/wedding/weddingalbum19/P7.jpg",
+      "/images/wedding/weddingalbum19/P8.jpg",
+      "/images/wedding/weddingalbum19/P9.jpg",
     ],
   },
   {
     id: "20",
-    title: "Bithee's - Haldi Highlights",
+    title: "Bithee's — Haldi Highlights",
     category: "Haldi",
     src: "/images/wedding/covers/H20.jpg",
     coverSrc: "/images/wedding/weddingalbum20/P2.jpg",
@@ -509,7 +526,7 @@ export const weddingAlbums = [
   },
   {
     id: "21",
-    title: "Samuddro & Ananna - Haldi Highlights",
+    title: "Samuddro & Ananna — Haldi Highlights",
     category: "Haldi", 
     src: "/images/wedding/covers/H21.jpg",
     coverSrc: "/images/wedding/weddingalbum21/P4.jpg",
@@ -540,7 +557,7 @@ export const weddingAlbums = [
 ];
 
 // --- Data for Wedding Films ---
-const weddingFilms = [
+const weddingFilms = [  
   {
     id: 1,
     title: "Arnob & Tarannum's Haldi Trailer",
@@ -562,7 +579,7 @@ const weddingFilms = [
   {
     id: 4,
     title: "Cinematic Bangali Gaye Holud || Samudro & Ananna",
-    category: "Hindu Wedding",
+    category: "Haldi",
     youtubeEmbedUrl: "https://www.youtube.com/embed/S2z1qfBUPRY",
   },
   {
@@ -580,7 +597,7 @@ const weddingFilms = [
   {
     id: 7,
     title: "Royal Wedding Trailer || Samir & Tulu",
-    category: "Pre/Post Wedding",
+    category: "Muslim Wedding",
     youtubeEmbedUrl: "https://www.youtube.com/embed/8CS0C6I7198",
   },
   {
