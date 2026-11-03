@@ -321,7 +321,7 @@ export const weddingAlbums = [
       "/images/wedding/weddingalbum11/P18.jpg",
       "/images/wedding/weddingalbum11/P19.jpg",
       "/images/wedding/weddingalbum11/P20.jpg",
-      "/images/wedding/weddingalbum11/P2₁.jpg",
+      "/images/wedding/weddingalbum11/P21.jpg",
       "/images/wedding/weddingalbum11/P22.jpg",
       "/images/wedding/weddingalbum11/P23.jpg",
       "/images/wedding/weddingalbum11/P24.jpg",
