@@ -19,206 +19,331 @@ const jost = Jost({
 
 const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.5, ease: "easeIn" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
 };
 
-// --- Mock Data: 12 Wedding Packages with Portrait Luxury Images ---
-const weddingPackages = [
+type PackageTierKey =
+  | "Essential Tier"
+  | "Combo Tier"
+  | "Lead by A.S.M. Sium"
+  | "Nakib Nizam Classic Series";
+
+interface WeddingPackage {
+  id: number;
+  tier: PackageTierKey;
+  crewBadge: string;
+  title: string;
+  tagline: string;
+  subtitle: string;
+  price: string;
+  image: string;
+  features: string[];
+  quote?: string;
+  popular?: boolean;
+}
+
+// --- All 13 Wedding Packages Organized by Tier ---
+const weddingPackages: WeddingPackage[] = [
+  // ================= 1. ESSENTIAL TIER =================
   {
     id: 1,
-    title: "The Royal Dynasty (3 Days)",
-    subtitle: "Complete Holdi, Mehendi & Grand Reception Coverage",
-    price: "৳ 1,50,000",
-    image:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop",
+    tier: "Essential Tier",
+    crewBadge: "1P",
+    title: "Tender Moments",
+    tagline: "Outdoors Only",
+    subtitle: "Perfect for focused outdoor moments",
+    price: "Starting at ৳ 7,000",
+    image: "/images/wedding/covers/R2.jpg",
     features: [
-      "3 Days Full Coverage",
-      "4 Lead Photographers & 4 Cinematographers",
-      "Cinematic Feature Film (5-7 Mins)",
-      "Drone Aerial Coverage",
-      "2 Premium Hardcover Photobooks",
-      "Same Day Teaser Reels",
+      "1 Lead Photographer (Sium / Sajib / Bipul)",
+      "3 hours coverage of focused moments",
+      "All images color corrected",
+      "High-resolution online gallery",
+      "Delivered through Google Drive",
     ],
-    popular: true,
   },
   {
     id: 2,
-    title: "The Imperial Union (2 Days)",
-    subtitle: "Haldi/Mehendi & Main Wedding Day",
-    price: "৳ 1,15,000",
-    image:
-      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1000&auto=format&fit=crop",
+    tier: "Essential Tier",
+    crewBadge: "1P",
+    title: "Classic Essential",
+    tagline: "Crafted to Capture Time",
+    subtitle: "Perfect for small indoor/outdoor gathering",
+    price: "Starting at ৳ 8,000",
+    image: "/images/wedding/covers/W1.jpg",
     features: [
-      "2 Days Comprehensive Coverage",
-      "3 Lead Photographers & 3 Cinematographers",
-      "Cinematic Highlights (4-5 Mins)",
-      "Drone Footage",
-      "1 Premium Photobook",
-      "All Soft Copies Delivered",
+      "1 Lead Photographer (Sium / Sajib / Bipul)",
+      "5 hours of coverage with unlimited clicks (12:30PM – 5:30PM or 6:30PM – 11:30PM)",
+      "All images color corrected",
+      "High-resolution online gallery",
+      "Delivered through Google Drive",
     ],
-    popular: false,
   },
   {
     id: 3,
-    title: "The Grand Reception",
-    subtitle: "Exclusive Single-Day Reception Gala",
-    price: "৳ 75,000",
-    image:
-      "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1000&auto=format&fit=crop",
+    tier: "Essential Tier",
+    crewBadge: "2P",
+    title: "Graceful Portraits",
+    tagline: "Candid Meets Timeless Memories",
+    subtitle: "Perfect for getting staged and candid shots",
+    price: "Starting at ৳ 15,000",
+    image: "/images/wedding/covers/PW3.jpg",
     features: [
-      "1 Day Full Coverage (Up to 6 Hours)",
-      "2 Lead Photographers & 2 Cinematographers",
-      "Cinematic Trailer (3 Mins)",
-      "Full Event Documentary Edit",
-      "Custom USB & Digital Delivery",
+      "2 Lead Photographers (Sium / Sajib / Bipul)",
+      "5 hours of coverage with unlimited clicks (12:30PM – 5:30PM or 6:30PM – 11:30PM)",
+      "All images color corrected",
+      "High-resolution online gallery",
+      "Delivered through Google Drive",
     ],
-    popular: false,
   },
+
+  // ================= 2. COMBO TIER =================
   {
     id: 4,
-    title: "Intimate Biye & Vivah",
-    subtitle: "Traditional Wedding Ceremony Specialist",
-    price: "৳ 65,000",
-    image:
-      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop",
+    tier: "Combo Tier",
+    crewBadge: "1P 1C",
+    title: "Intimate Canvas",
+    tagline: "Intimacy, Captured Timelessly",
+    subtitle: "Perfect for pre/post wedding / maternity outdoor sessions",
+    price: "Starting at ৳ 14,000",
+    image: "/images/wedding/covers/PW4.jpg",
     features: [
-      "Single Day Main Wedding Coverage",
-      "2 Photographers & 2 Cinematographers",
-      "Cinematic Highlight Reel",
-      "High-Resolution Edited Photos",
-      "Online Private Gallery",
+      "1 Lead Photographer (Sium / Sajib / Bipul)",
+      "1 Lead Cinematographer (Alamgir / Farid)",
+      "3 hours of coverage with unlimited clicks",
+      "1 Outdoor Location",
+      "All images color corrected",
+      "1 Short reel & 1 Story Film (2–5 minute)",
+      "Online Proofing gallery & Google Drive delivery",
     ],
-    popular: false,
   },
   {
     id: 5,
-    title: "Gaye Holud Special",
-    subtitle: "Vibrant & Colorful Cultural Night Coverage",
-    price: "৳ 45,000",
-    image:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1000&auto=format&fit=crop",
+    tier: "Combo Tier",
+    crewBadge: "1P 1C",
+    title: "Vibrant Tale",
+    tagline: "Festive Traditions, Preserved in Rich Tones",
+    subtitle:
+      "Perfect for Standard Intimate Haldi / Mehendi / Wedding / Reception / Akdh",
+    price: "Starting at ৳ 18,000",
+    image: "/images/wedding/covers/H4.jpg",
+    popular: true,
     features: [
-      "Dedicated Holdi Night Coverage",
-      "2 Photographers & 1 Cinematographer",
-      "Teaser Video for Social Media",
-      "All Edited Soft Copies",
+      "1 Lead Photographer (Sium / Sajib / Bipul)",
+      "1 Lead Cinematographer (Farid / Sajal / Alamgir)",
+      "5 hours of coverage with unlimited clicks (12:30PM – 5:30PM or 6:30PM – 11:30PM)",
+      "All Vibrant graded photos delivered",
+      "1 Short reel, 2 Min Highlight Film & Full Event Chronicle",
+      "High-resolution online gallery",
+      "50 Copy 4R Print, Album & 1 Pendrive",
     ],
-    popular: false,
   },
   {
     id: 6,
-    title: "Valima Celebration",
-    subtitle: "Elegant Post-Wedding Reception",
-    price: "৳ 55,000",
-    image:
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1000&auto=format&fit=crop",
+    tier: "Combo Tier",
+    crewBadge: "1P 1C",
+    title: "Festive Spark",
+    tagline: "Moments Made to be Celebrated",
+    subtitle: "Perfect for Birthdays & Anniversaries",
+    price: "Starting at ৳ 16,000",
+    image: "/images/wedding/covers/H5.jpg",
     features: [
-      "Single Day Valima Event",
-      "2 Photographers & 2 Cinematographers",
-      "Cinematic Trailer",
-      "High-Res Edited Photo Collection",
+      "1 Lead Photographer — A.S.M. Sium",
+      "1 Lead Cinematographer — Sheikh Farid",
+      "5 hours of dedicated event coverage (12:30PM – 5:30PM or 6:30PM – 11:30PM)",
+      "All professionally edited photos",
+      "1 Cinematic Trailer & 1 Full Event Film",
+      "Secure Google Drive delivery (20 Days)",
     ],
-    popular: false,
   },
+
+  // ================= 3. LEAD BY A.S.M. SIUM =================
   {
     id: 7,
-    title: "Cinematic Storyteller Tier 1",
-    subtitle: "Heavy Focus on Film & Documentary",
-    price: "৳ 90,000",
-    image:
-      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1000&auto=format&fit=crop",
+    tier: "Lead by A.S.M. Sium",
+    crewBadge: "2P 1C",
+    title: "Timeless Blend",
+    tagline: "The Visual Trio",
+    subtitle:
+      "Perfect for medium gatherings 100–300 Guests (Haldi / Mehendi / Wedding / Reception / Akdh)",
+    price: "Starting at ৳ 23,000",
+    image: "/images/wedding/covers/W6.jpg",
     features: [
-      "2 Days Coverage",
-      "Specialized Cinema Rig & Gimbals",
-      "Extended Cinematic Story Film (10 Mins)",
-      "3 Lead Cinematographers & 2 Photographers",
-      "Drone Operator",
+      "Supervised & Photographed by Lead Photographer A.S.M. Sium",
+      "1 Lead Photographer (Sajib / Bipul) dedicated for capturing moments",
+      "1 Lead Cinematographer (Alamgir / Farid)",
+      "5 hours of coverage with unlimited clicks (12:30PM – 5:30PM or 6:30PM – 11:30PM)",
+      "All images color corrected",
+      "1 Cinematic Trailer & 1 Full Feature Film",
+      "Presentation Box with USB Drive & Customized Magazine",
+      "Delivery deadline: 30 working days",
     ],
-    popular: false,
   },
   {
     id: 8,
-    title: "Minimalist Elegance",
-    subtitle: "Simple, Clean & Professional Documentation",
-    price: "৳ 35,000",
-    image:
-      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop",
+    tier: "Lead by A.S.M. Sium",
+    crewBadge: "2P 2C",
+    title: "Elegant Harmony",
+    tagline: "The Dual Perspective",
+    subtitle:
+      "Perfect for 200–500+ Guests (Haldi / Mehendi / Wedding / Reception / Akdh)",
+    price: "Starting at ৳ 36,000",
+    image: "/images/wedding/covers/C7.jpg",
+    popular: true,
     features: [
-      "Single Day Coverage (Up to 4 Hours)",
-      "1 Lead Photographer & 1 Videographer",
-      "Highlight Reel (1-2 Mins)",
-      "Edited Soft Copies",
+      "Supervised & Photographed by Lead Photographer A.S.M. Sium",
+      "1 Lead Photographer (Sajib / Bipul) & 2 Lead Cinematographers (Alamgir / Farid / Sajal)",
+      "5 hours of coverage with unlimited clicks (12:30PM – 5:30PM or 6:30PM – 11:30PM)",
+      "1 Photographer & 1 Cinematographer dedicated for guests' candids & moments",
+      "All retouched photos delivered (Specialized Decor, Candid Focus & Guest Portraits)",
+      "1 Reel, 1 Cinematic Trailer & 1 Full Film",
+      "1 Customized Magazine & Exclusive Presentation Box with USB Drive (30 working days)",
     ],
-    popular: false,
   },
   {
     id: 9,
-    title: "Bridal Portraiture Special",
-    subtitle: "Solo Portrait & Couple Shoot Session",
-    price: "৳ 25,000",
-    image:
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1000&auto=format&fit=crop",
+    tier: "Lead by A.S.M. Sium",
+    crewBadge: "3P 2C 1D",
+    title: "Elite Grandeur",
+    tagline: "The Complete Symphony",
+    subtitle:
+      "Perfect for 400+ Guests / Mid–Large Scale Venue (Haldi / Mehendi / Wedding / Reception / Akdh)",
+    price: "Starting at ৳ 58,000",
+    image: "/images/wedding/covers/H16.jpg",
     features: [
-      "Half Day Dedicated Shoot",
-      "1 Master Photographer",
-      "High-End Retouching (30 Masterpiece Frames)",
-      "Outdoor Scenic Location in Dhaka",
+      "Directed & Photographed by Lead Photographer A.S.M. Sium",
+      "2 Lead Photographers (Shishir / Sajib / Bipul) & 2 Lead Cinematographers (Alamgir / Farid / Sajal)",
+      "5 hours of coverage with unlimited clicks (12:30PM – 5:30PM or 6:30PM – 11:30PM)",
+      "Cinematic Drone Coverage for Aerial Shots",
+      "All professionally graded photos delivered (Outdoor, Decor, Moments & Aerial Portraits)",
+      "2 Reels, 1 Cinematic Trailer & 1 Full Feature Film",
+      "1 Customized Photobook & Exclusive Presentation Box with USB Drive (30 working days)",
     ],
-    popular: false,
   },
+
+  // ================= 4. NAKIB NIZAM CLASSIC SERIES =================
   {
     id: 10,
-    title: "Engagement & Roka",
-    subtitle: "Pre-Wedding Ring Ceremony",
-    price: "৳ 30,000",
-    image:
-      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1000&auto=format&fit=crop",
+    tier: "Nakib Nizam Classic Series",
+    crewBadge: "1P 1C + 2 Asst.",
+    title: "Orchid Mist",
+    tagline: "The Curated Classic — Intimate Gatherings",
+    subtitle:
+      "Best suited for Intimate Home Akdh, Intimate Mehendi, Engagement, or Private Gatherings",
+    price: "৳ 42,000",
+    image: "/images/wedding/covers/W10.jpg",
+    quote:
+      "An intimate canvas of light and legacy—where your quietest moments are held forever still.",
     features: [
-      "Up to 4 Hours Coverage",
-      "1 Photographer & 1 Cinematographer",
-      "Short Social Media Teaser",
-      "All Edited Photos",
+      "Creative Direction: Chief Photographer Md. Nakib Nizam",
+      "1 Lead Photographer (Shahirar Shishir / Saddad Sium), 1 Lead Cinematographer (Milba / Farid / Sajal / Alamgir) & 2 Assistant Visualizers",
+      "1-on-1 Virtual Pre-Wedding Styling, Palette Consultation & Lighting Mood Board",
+      "Dedicated Prop Set: 1 curated styling element for ring/detail flatlays",
+      "Complete couple storytelling coverage with retouched & color-graded high-res photos",
+      "1 Short Reel + 1 Cinematic Event Highlight + 1 Full Narrative Film",
+      "10–15 Preview Photos delivered within 48 hours",
+      "Curated Storytelling Magazine, Exclusive Presentation Box with Pendrive & Lifetime Cloud Gallery",
     ],
-    popular: false,
   },
   {
     id: 11,
-    title: "Bespoke Elite Wedding",
-    subtitle: "Custom Tailored for Destination & Luxury Venues",
-    price: "Custom Quote",
-    image:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop",
+    tier: "Nakib Nizam Classic Series",
+    crewBadge: "2P 2C",
+    title: "Orchid Pearl",
+    tagline: "The Editorial & Dynamic Narrative",
+    subtitle:
+      "Best suited for Mid-Sized Weddings, Vibrant Holud Celebrations, or Grand Receptions (Up to 500 Guests)",
+    price: "৳ 84,000",
+    image: "/images/wedding/covers/R1.jpg",
+    quote:
+      "Life in bold motion, beauty stilled in time—an editorial celebration crafted into an everlasting publication.",
     features: [
-      "End-to-End Multi-Day Coverage",
-      "Full Crew (6+ Members)",
-      "Pre-Wedding & Post-Wedding Sessions",
-      "Multiple Cinematic Edits & Albums",
-      "Dedicated Project Manager",
+      "Creative Direction: Guided & art-directed by Chief Photographer Md. Nakib Nizam",
+      "1 Lead Photographer (Editorial) + 1 Core Photographer (Candids, Family & Stage)",
+      "2 Lead Cinematographers (Multi-angle narrative flow, fluid gimbal & emotive framing)",
+      "Pre-Production Creative Session, Dedicated Editorial Portrait Window & Curated Vintage Styling Suite",
+      "Complete high-res master collection with signature grading & magazine-grade retouching",
+      "1 Signature Cinematic Highlight Film + 1 Full-Length Feature Narrative",
+      "2 Fast-Track Social Media Reels (Delivered within 5 days)",
+      "Custom Fine-Art Printed Magazine & Private Online Proofing & Archival Gallery",
     ],
-    popular: false,
   },
   {
     id: 12,
-    title: "Micro-Wedding Package",
-    subtitle: "For Small Family Gatherings & Home Events",
-    price: "৳ 28,000",
-    image:
-      "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1000&auto=format&fit=crop",
+    tier: "Nakib Nizam Classic Series",
+    crewBadge: "3P 3C • 6-Lens",
+    title: "Orchid Velvet",
+    tagline: "The Directorial Showcase",
+    subtitle:
+      "Best suited for Flagship Weddings, Grand Receptions & Heritage Celebrations",
+    price: "৳ 1,00,000",
+    image: "/images/wedding/covers/HN1.jpg",
+    popular: true,
+    quote:
+      "Not just an event capture—it is a visual narrative directed on the ground by Nakib Nizam himself.",
     features: [
-      "Up to 3 Hours Coverage",
-      "1 Photographer & 1 Videographer",
-      "Quick Delivery (Within 7 Days)",
-      "All Edited Digital Copies",
+      "On-Site Creative Director: Md. Nakib Nizam (Chief Photographer)",
+      "6-Lens Ground Architecture: 1 Senior Lead Photographer, 1 Core Photographer & 3 Cinematographers (Lead Narrative, Fluid Motion, Guest & Ambient)",
+      "1-on-1 Pre-Production Vision & Moodboard Session with Nakib Nizam",
+      "Signature Editorial Couple Session, Concierge Buffer Protocol & Heirloom Detail Curation",
+      "Complete full-event high-resolution digital master gallery with signature color grading",
+      "1 Signature 2–5 Min Director's Cut Highlight Film + 1 Full-Length Multi-Cam Documentary",
+      "3–4 Curated Vertical Reels formatted for high-impact social releases",
+      "Hardbound Heirloom Photo-Book, Custom Engraved Drive in Presentation Box & Permanent Cloud Vault",
     ],
-    popular: false,
+  },
+  {
+    id: 13,
+    tier: "Nakib Nizam Classic Series",
+    crewBadge: "3P 3C + Stylist",
+    title: "Orchid Bridal",
+    tagline: "The Bridal Sanctuary Edition",
+    subtitle:
+      "Best suited for Brides seeking an effortless, unhurried experience, personal comfort & high-fashion editorial portraits",
+    price: "৳ 1,35,000",
+    image: "/images/wedding/covers/C12.jpg",
+    quote:
+      "True elegance is effortless—where serene moments, mindful grace, and haute portraiture converge.",
+    features: [
+      "Creative Direction: Guided & art-directed by Chief Photographer Md. Nakib Nizam",
+      "Bridal Liaison & Styling Director (Ramisa): Dedicated Floor Advocate for veil, lehenga, jewelry, posture & unhurried comfort pacing",
+      "Stills Unit: 2 Lead Photographers (Editorial Bridal Couture) + 1 Core Photographer (Candids & Rituals)",
+      "Motion Unit: Lead Cinematographers (Fluid gimbal tracking, close-up emotive nuances & full ritual film)",
+      "In-Person Atelier Consultation & Bespoke Prop & Flora Styling Suite",
+      "Dedicated High-Fashion Bridal Suite Portrait Session + Comprehensive Event Coverage",
+      "1 Signature Cinematic Teaser + 1 Extended Narrative Documentary + 2 Curated Vertical Reels",
+      "Handcrafted Fine-Art Photobook, Custom Presentation USB Drive & Private Online Proofing Gallery",
+    ],
   },
 ];
+
+const tierOrder: PackageTierKey[] = [
+  "Essential Tier",
+  "Combo Tier",
+  "Lead by A.S.M. Sium",
+  "Nakib Nizam Classic Series",
+];
+
+const tierDescriptions: Record<PackageTierKey, string> = {
+  "Essential Tier":
+    "Refined photography-only collections tailored for intimate ceremonies, outdoor sessions, and candid storytelling.",
+  "Combo Tier":
+    "Balanced photography & cinematography duos crafted for outdoor shoots, vibrant haldis, and milestone celebrations.",
+  "Lead by A.S.M. Sium":
+    "Signature multi-lens productions supervised and photographed by Creative Director A.S.M. Sium.",
+  "Nakib Nizam Classic Series":
+    "Our flagship haute-editorial collections art-directed by Chief Photographer Md. Nakib Nizam.",
+};
 
 export default function PackagesPage() {
   const [activeTab, setActiveTab] = useState<
     "wedding" | "corporate" | "commercial"
   >("wedding");
+  const [activeTier, setActiveTier] = useState<"All" | PackageTierKey>("All");
+
+  const visibleTiers =
+    activeTier === "All" ? tierOrder : tierOrder.filter((t) => t === activeTier);
 
   return (
     <div
@@ -227,8 +352,8 @@ export default function PackagesPage() {
       {/* Background Glow Accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#cba677]/10 rounded-full blur-[140px] pointer-events-none"></div>
 
-      {/* ================= HERO SECTION ================= */}
-      <section className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center">
+      {/* ================= HERO SECTION (Ultra Compact) ================= */}
+      <section className="relative w-full overflow-hidden flex items-center justify-center pt-28 pb-8">
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop"
@@ -241,12 +366,12 @@ export default function PackagesPage() {
           <div className="absolute inset-0 bg-black/60 bg-gradient-to-t from-[#3E141E] via-black/40 to-black/30"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 mt-16 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <motion.span
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-[10px] uppercase tracking-[0.4em] text-[#cba677] block mb-3 font-light"
+            className="text-[9px] uppercase tracking-[0.4em] text-[#cba677] block mb-1.5 font-light"
           >
             Transparent Investment & Bespoke Tiers
           </motion.span>
@@ -254,7 +379,7 @@ export default function PackagesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className={`text-6xl md:text-8xl text-white tracking-wide ${cormorant.className}`}
+            className={`text-4xl md:text-6xl text-white tracking-wide ${cormorant.className}`}
           >
             Packages & Pricing
           </motion.h1>
@@ -262,27 +387,33 @@ export default function PackagesPage() {
       </section>
 
       {/* ================= CATEGORY TABS ================= */}
-      <section className="py-16 px-6 max-w-[1500px] mx-auto relative z-10">
-        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-16 border-b border-white/10 pb-8">
-          {[
-            { key: "wedding", label: "Weddings (12 Tiers)" },
-            { key: "corporate", label: "Corporate Summits (Get a Quote)" },
-            { key: "commercial", label: "Commercial & Products (Get a Quote)" },
-          ].map((tab) => (
+      <section className="pt-4 pb-10 px-6 max-w-[1400px] mx-auto relative z-10">
+        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-16 border-b border-white/10 pb-6">
+          {(
+            [
+              { key: "wedding", label: "Weddings (13 Tiers)" },
+              { key: "corporate", label: "Corporate Summits" },
+              { key: "commercial", label: "Commercial & Products" },
+            ] as const
+          ).map((tab) => (
             <button
               key={tab.key}
-              onClick={() => setActiveTab(tab.key as any)}
+              onClick={() => setActiveTab(tab.key)}
               className="relative group focus:outline-none px-4 py-2"
             >
               <span
-                className={`text-base md:text-xl uppercase tracking-[0.2em] transition-colors duration-500 font-light ${activeTab === tab.key ? "text-white italic" : "text-gray-400 hover:text-white"}`}
+                className={`text-sm md:text-lg uppercase tracking-[0.2em] transition-colors duration-500 font-light ${
+                  activeTab === tab.key
+                    ? "text-white italic font-normal"
+                    : "text-gray-400 hover:text-white"
+                }`}
               >
                 {tab.label}
               </span>
               {activeTab === tab.key && (
                 <motion.div
                   layoutId="activePackageIndicator"
-                  className="absolute bottom-0 left-0 w-full h-[2px] bg-[#cba677]"
+                  className="absolute -bottom-6 left-0 w-full h-[2px] bg-[#cba677]"
                 />
               )}
             </button>
@@ -290,9 +421,9 @@ export default function PackagesPage() {
         </div>
 
         {/* ================= CONTENT AREA ================= */}
-        <div className="mt-20">
+        <div className="mt-10">
           <AnimatePresence mode="wait">
-            {/* 1. WEDDING TAB (4 COLUMNS & PORTRAIT IMAGES) */}
+            {/* 1. WEDDING TAB */}
             {activeTab === "wedding" && (
               <motion.div
                 key="wedding"
@@ -300,73 +431,170 @@ export default function PackagesPage() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1500px] mx-auto"
               >
-                {weddingPackages.map((pkg) => (
-                  <motion.div
-                    key={pkg.id}
-                    whileHover={{ y: -6 }}
-                    transition={{ duration: 0.3 }}
-                    className={`relative bg-black/40 border overflow-hidden rounded-sm flex flex-col justify-between transition-all duration-500 shadow-xl ${pkg.popular ? "border-[#cba677] shadow-[#cba677]/20" : "border-white/10 hover:border-[#cba677]/50"}`}
-                  >
-                    {/* Portrait Image Header */}
-                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-black/50">
-                      <Image
-                        src={pkg.image}
-                        alt={pkg.title}
-                        fill
-                        className="object-cover transition-transform duration-1000 hover:scale-105 opacity-90"
-                        unoptimized
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                {/* Sub-Tier Filter Pills */}
+                <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 mb-16">
+                  {(["All", ...tierOrder] as const).map((tier) => (
+                    <button
+                      key={tier}
+                      onClick={() => setActiveTier(tier)}
+                      className={`text-[10px] tracking-[0.2em] uppercase px-4 py-2 rounded-full border transition-all duration-400 ${
+                        activeTier === tier
+                          ? "bg-[#cba677] text-[#3E141E] border-[#cba677] font-medium shadow-lg"
+                          : "border-white/20 text-gray-300 hover:border-[#cba677] hover:text-white"
+                      }`}
+                    >
+                      {tier === "All" ? "All Tiers" : tier}
+                    </button>
+                  ))}
+                </div>
 
-                      {pkg.popular && (
-                        <span className="absolute top-3 right-3 bg-[#cba677] text-[#3E141E] px-2.5 py-1 text-[7px] uppercase tracking-[0.25em] font-medium shadow-md">
-                          Most Popular
-                        </span>
-                      )}
+                {/* Tiered Package Sections */}
+                <div className="space-y-24 pb-20">
+                  {visibleTiers.map((tierName) => {
+                    const tierPackages = weddingPackages.filter(
+                      (pkg) => pkg.tier === tierName
+                    );
+                    const isClassicSeries =
+                      tierName === "Nakib Nizam Classic Series";
 
-                      <div className="absolute bottom-3 left-4 text-lg md:text-xl text-[#cba677] font-medium tracking-wider drop-shadow-md">
-                        {pkg.price}
-                      </div>
-                    </div>
+                    return (
+                      <div key={tierName}>
+                        {/* Tier Section Header */}
+                        <div className="text-center mb-12 max-w-2xl mx-auto">
+                          <span className="text-[10px] uppercase tracking-[0.4em] text-[#cba677] block mb-2 font-light">
+                            Ocean of Orchid Collection
+                          </span>
+                          <h2
+                            className={`text-3xl md:text-5xl text-white tracking-wider ${cormorant.className}`}
+                          >
+                            {tierName}
+                          </h2>
+                          <div className="w-12 h-[1px] bg-[#cba677] mx-auto my-4"></div>
+                          <p className="text-gray-300 text-xs md:text-sm font-light tracking-wide leading-relaxed">
+                            {tierDescriptions[tierName]}
+                          </p>
+                        </div>
 
-                    {/* Card Content */}
-                    <div className="p-6 flex flex-col justify-between flex-grow">
-                      <div>
-                        <h3
-                          className={`text-xl text-white mb-1 ${cormorant.className}`}
+                        {/* Cards Grid: 2 Columns for Nakib Nizam Classic Series, 3 Columns for other Tiers */}
+                        <div
+                          className={`grid grid-cols-1 ${
+                            isClassicSeries
+                              ? "lg:grid-cols-2 gap-10"
+                              : "md:grid-cols-2 lg:grid-cols-3 gap-8"
+                          }`}
                         >
-                          {pkg.title}
-                        </h3>
-                        <p className="text-gray-400 text-[11px] font-light tracking-wide mb-4">
-                          {pkg.subtitle}
-                        </p>
-
-                        <div className="w-full h-[1px] bg-white/10 mb-4"></div>
-
-                        <ul className="space-y-2.5 mb-6 text-gray-300 font-light text-xs">
-                          {pkg.features.map((feature, idx) => (
-                            <li
-                              key={idx}
-                              className="flex items-start space-x-2"
+                          {tierPackages.map((pkg) => (
+                            <motion.div
+                              key={pkg.id}
+                              whileHover={{ y: -6 }}
+                              transition={{ duration: 0.3 }}
+                              className={`relative bg-black/40 border overflow-hidden rounded-sm flex flex-col justify-between transition-all duration-500 shadow-2xl ${
+                                pkg.popular
+                                  ? "border-[#cba677] shadow-[#cba677]/15"
+                                  : "border-white/10 hover:border-[#cba677]/50"
+                              }`}
                             >
-                              <span className="text-[#cba677] mt-0.5">✦</span>
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                              {/* Card Image Header */}
+                              <div
+                                className={`relative w-full overflow-hidden bg-black/50 ${
+                                  isClassicSeries
+                                    ? "aspect-[16/10]"
+                                    : "aspect-[4/5]"
+                                }`}
+                              >
+                                <Image
+                                  src={pkg.image}
+                                  alt={pkg.title}
+                                  fill
+                                  className="object-cover transition-transform duration-1000 hover:scale-105 opacity-90"
+                                  unoptimized
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/20"></div>
 
-                      <Link
-                        href="/contact"
-                        className="w-full py-3 bg-transparent border border-[#cba677] text-[#cba677] text-center text-[9px] uppercase tracking-[0.2em] font-medium hover:bg-[#cba677] hover:text-[#3E141E] transition-all duration-500 block shadow-md"
-                      >
-                        Book This Package ↗
-                      </Link>
-                    </div>
-                  </motion.div>
-                ))}
+                                {/* Crew Setup Badge */}
+                                <span className="absolute top-4 left-4 bg-black/65 backdrop-blur-md border border-white/15 text-gray-200 px-3 py-1 text-[9px] uppercase tracking-[0.2em]">
+                                  {pkg.crewBadge}
+                                </span>
+
+                                {/* Popular / Signature Badge */}
+                                {pkg.popular && (
+                                  <span className="absolute top-4 right-4 bg-[#cba677] text-[#3E141E] px-3 py-1 text-[8px] uppercase tracking-[0.25em] font-semibold shadow-md">
+                                    Signature Choice
+                                  </span>
+                                )}
+
+                                {/* Price Overlay */}
+                                <div className="absolute bottom-4 left-6 right-6 flex items-end justify-between">
+                                  <div>
+                                    <span className="text-[9px] uppercase tracking-[0.3em] text-[#cba677] block mb-0.5">
+                                      Investment
+                                    </span>
+                                    <div className="text-xl md:text-2xl text-white font-normal tracking-wider drop-shadow-md">
+                                      {pkg.price}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Card Body */}
+                              <div className="p-7 flex flex-col justify-between flex-grow">
+                                <div>
+                                  <span className="text-[10px] uppercase tracking-[0.28em] text-[#cba677] block mb-1.5 font-light">
+                                    {pkg.tagline}
+                                  </span>
+                                  <h3
+                                    className={`text-2xl md:text-3xl text-white italic mb-2 ${cormorant.className}`}
+                                  >
+                                    {pkg.title}
+                                  </h3>
+                                  <p className="text-gray-400 text-xs font-light tracking-wide leading-relaxed mb-5">
+                                    {pkg.subtitle}
+                                  </p>
+
+                                  <div className="w-full h-[1px] bg-white/10 mb-5"></div>
+
+                                  <ul className="space-y-2.5 mb-6 text-gray-300 font-light text-xs md:text-[13px] leading-relaxed">
+                                    {pkg.features.map((feature, idx) => (
+                                      <li
+                                        key={idx}
+                                        className="flex items-start space-x-2.5"
+                                      >
+                                        <span className="text-[#cba677] mt-0.5 shrink-0">
+                                          ✦
+                                        </span>
+                                        <span>{feature}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+
+                                  {pkg.quote && (
+                                    <blockquote
+                                      className={`border-l border-[#cba677]/50 pl-4 py-1 mb-6 text-sm md:text-base text-gray-300 italic ${cormorant.className}`}
+                                    >
+                                      &ldquo;{pkg.quote}&rdquo;
+                                    </blockquote>
+                                  )}
+                                </div>
+
+                                <Link
+                                  href="/contact"
+                                  className={`w-full py-3.5 text-center text-[10px] uppercase tracking-[0.25em] font-medium transition-all duration-500 block shadow-md ${
+                                    pkg.popular
+                                      ? "bg-[#cba677] text-[#3E141E] hover:bg-white"
+                                      : "bg-transparent border border-[#cba677] text-[#cba677] hover:bg-[#cba677] hover:text-[#3E141E]"
+                                  }`}
+                                >
+                                  Book {pkg.title} ↗
+                                </Link>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </motion.div>
             )}
 
@@ -378,7 +606,7 @@ export default function PackagesPage() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="max-w-3xl mx-auto text-center p-12 bg-black/40 border border-white/10 rounded-sm shadow-2xl relative overflow-hidden"
+                className="max-w-3xl mx-auto text-center p-12 my-12 bg-black/40 border border-white/10 rounded-sm shadow-2xl relative overflow-hidden"
               >
                 <span className="text-[10px] uppercase tracking-[0.4em] text-[#cba677] block mb-3 font-light">
                   Tailored Corporate Solutions
@@ -411,7 +639,7 @@ export default function PackagesPage() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="max-w-3xl mx-auto text-center p-12 bg-black/40 border border-white/10 rounded-sm shadow-2xl relative overflow-hidden"
+                className="max-w-3xl mx-auto text-center p-12 my-12 bg-black/40 border border-white/10 rounded-sm shadow-2xl relative overflow-hidden"
               >
                 <span className="text-[10px] uppercase tracking-[0.4em] text-[#cba677] block mb-3 font-light">
                   Commercial Excellence

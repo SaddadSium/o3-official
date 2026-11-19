@@ -255,14 +255,14 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* ================= LEADERSHIP (CO-FOUNDERS - Compact & Minimal) ================= */}
-      <section className="py-24 px-6 lg:px-12 max-w-5xl mx-auto bg-black/25 border-y border-white/10 relative">
+      {/* ================= LEADERSHIP (THE VISIONARIES - Unique Compact Editorial Style) ================= */}
+      <section className="py-16 px-6 lg:px-12 max-w-4xl mx-auto relative">
         <motion.div
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <span className="text-[10px] uppercase tracking-[0.4em] text-[#cba677] block mb-2 font-light">
             Leadership
@@ -280,39 +280,63 @@ export default function AboutPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto justify-center"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto"
         >
-          {coFounders.map((founder) => {
+          {coFounders.map((founder, index) => {
             const hasSocials = founder.fb || founder.insta || founder.web;
             return (
               <motion.div
                 key={founder.id}
                 variants={sectionVariants}
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -4 }}
                 transition={{ duration: 0.4 }}
-                className="group text-center max-w-[240px] mx-auto w-full"
+                className="group relative flex items-center gap-5 p-4 bg-white/[0.03] backdrop-blur-sm border border-[#cba677]/20 hover:border-[#cba677]/60 rounded-sm shadow-2xl overflow-hidden transition-all duration-500"
               >
-                <div className="relative aspect-[4/5] overflow-hidden mb-3 bg-black/40 shadow-xl rounded-sm">
+                {/* Subtle Editorial Number Watermark */}
+                <span
+                  className={`absolute top-1 right-3 text-5xl text-[#cba677]/10 italic pointer-events-none select-none ${cormorant.className}`}
+                >
+                  0{index + 1}
+                </span>
+
+                {/* Compact Portrait Frame */}
+                <div className="relative w-24 h-32 sm:w-28 sm:h-36 shrink-0 overflow-hidden rounded-sm bg-black/40 border border-white/10 group-hover:border-[#cba677]/40 transition-colors duration-500">
                   <Image
                     src={founder.image}
                     alt={founder.name}
                     fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
                     unoptimized
                   />
+                </div>
 
+                {/* Right-Side Executive Details */}
+                <div className="flex flex-col justify-center text-left relative z-10 pr-2">
+                  <span className="text-[9px] text-[#cba677] tracking-[0.25em] uppercase font-light mb-1">
+                    {founder.role}
+                  </span>
+                  <h3
+                    className={`text-2xl text-white italic tracking-wide leading-tight ${cormorant.className}`}
+                  >
+                    {founder.name}
+                  </h3>
+
+                  {/* Animated Gold Divider */}
+                  <div className="w-8 h-[1px] bg-[#cba677]/50 my-3 group-hover:w-14 group-hover:bg-[#cba677] transition-all duration-500"></div>
+
+                  {/* Minimal Social Links */}
                   {hasSocials && (
-                    <div className="absolute inset-0 bg-[#3E141E]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center space-x-3">
+                    <div className="flex items-center space-x-2.5">
                       {founder.fb && (
                         <a
                           href={founder.fb}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label="Facebook"
-                          className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
+                          className="w-7 h-7 rounded-full border border-white/15 flex items-center justify-center text-gray-300 hover:border-[#cba677] hover:bg-[#cba677] hover:text-[#3E141E] transition-all duration-300"
                         >
                           <svg
-                            className="w-4 h-4"
+                            className="w-3.5 h-3.5"
                             fill="currentColor"
                             viewBox="0 0 24 24"
                           >
@@ -326,10 +350,10 @@ export default function AboutPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label="Instagram"
-                          className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
+                          className="w-7 h-7 rounded-full border border-white/15 flex items-center justify-center text-gray-300 hover:border-[#cba677] hover:bg-[#cba677] hover:text-[#3E141E] transition-all duration-300"
                         >
                           <svg
-                            className="w-4 h-4"
+                            className="w-3.5 h-3.5"
                             fill="currentColor"
                             viewBox="0 0 24 24"
                           >
@@ -347,10 +371,10 @@ export default function AboutPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label="Website"
-                          className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#cba677] hover:text-[#3E141E] hover:scale-110 transition-all duration-300"
+                          className="w-7 h-7 rounded-full border border-white/15 flex items-center justify-center text-gray-300 hover:border-[#cba677] hover:bg-[#cba677] hover:text-[#3E141E] transition-all duration-300"
                         >
                           <svg
-                            className="w-4 h-4"
+                            className="w-3.5 h-3.5"
                             fill="none"
                             stroke="currentColor"
                             strokeWidth="2"
@@ -364,21 +388,13 @@ export default function AboutPage() {
                     </div>
                   )}
                 </div>
-                <h3
-                  className={`text-lg text-white tracking-wide ${cormorant.className}`}
-                >
-                  {founder.name}
-                </h3>
-                <p className="text-[9px] text-[#cba677] tracking-[0.2em] uppercase mt-0.5 font-light">
-                  {founder.role}
-                </p>
               </motion.div>
             );
           })}
         </motion.div>
       </section>
 
-      {/* ================= CREATIVE COLLECTIVE (TEAM MEMBERS - Compact Grid) ================= */}
+      {/* ================= CREATIVE COLLECTIVE (TEAM MEMBERS - Full Role Visibility) ================= */}
       <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
         <motion.div
           variants={sectionVariants}
@@ -403,7 +419,7 @@ export default function AboutPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10"
         >
           {teamMembers.map((member: any) => {
             const hasSocials = member.fb || member.insta || member.web;
@@ -413,9 +429,9 @@ export default function AboutPage() {
                 variants={sectionVariants}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="group text-center"
+                className="group text-center flex flex-col items-center"
               >
-                <div className="relative aspect-[4/5] overflow-hidden mb-3 bg-black/40 rounded-sm shadow-md">
+                <div className="relative w-full aspect-[4/5] overflow-hidden mb-3 bg-black/40 rounded-sm shadow-md">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -431,11 +447,11 @@ export default function AboutPage() {
                   )}
                 </div>
                 <h3
-                  className={`text-base text-white tracking-wide ${cormorant.className}`}
+                  className={`text-lg text-white tracking-wide ${cormorant.className}`}
                 >
                   {member.name}
                 </h3>
-                <p className="text-[9px] text-[#cba677] tracking-[0.15em] uppercase mt-0.5 font-light line-clamp-1">
+                <p className="text-[10px] text-[#cba677] tracking-[0.12em] uppercase mt-1 font-light leading-relaxed px-1">
                   {member.role}
                 </p>
               </motion.div>
