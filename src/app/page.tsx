@@ -25,99 +25,108 @@ const heroImages = [
   "/images/hero/hero5.webp",
 ];
 
-const archives = [
+// --- Featured Wedding Albums (Linked directly to /wedding/[id]) ---
+const featuredArchives = [
   {
-    id: 1,
-    title: "ERA & EMRAN",
-    src: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=800&auto=format&fit=crop",
-    span: "col-span-1 md:col-span-2 row-span-2",
+    id: "1",
+    title: "Deen & Laiba — Royal Wedding",
+    category: "Muslim Wedding",
+    src: "/images/wedding/covers/W1.jpg",
+    span: "col-span-1 md:col-span-2 md:row-span-2 min-h-[380px] md:min-h-full",
   },
   {
-    id: 2,
-    title: "AZFAR & SADIIA",
-    src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop",
-    span: "col-span-1",
+    id: "2",
+    title: "Tanvir & Sanjida — Reception Highlights",
+    category: "Reception",
+    src: "/images/wedding/covers/R1.jpg",
+    span: "col-span-1 aspect-[4/3]",
   },
   {
-    id: 3,
-    title: "HAMZA & RUKSAD",
-    src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop",
-    span: "col-span-1",
+    id: "11",
+    title: "Samudro & Ananna — Wedding Highlights",
+    category: "Hindu Wedding",
+    src: "/images/wedding/covers/HN1.jpg",
+    span: "col-span-1 aspect-[4/3]",
   },
   {
-    id: 4,
-    title: "SAZZAD & NOWREEN",
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop",
-    span: "col-span-1 md:col-span-2",
+    id: "8",
+    title: "Munim & Tasnim — Post Wedding",
+    category: "Pre/Post Wedding",
+    src: "/images/wedding/covers/PW4.jpg",
+    span: "col-span-1 md:col-span-2 aspect-[16/9] md:aspect-[21/10]",
   },
   {
-    id: 5,
-    title: "SAMARA & ANIK",
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop",
-    span: "col-span-1 md:col-span-2",
+    id: "5",
+    title: "Prova's Mehendi Celebration",
+    category: "Haldi",
+    src: "/images/wedding/covers/H5.jpg",
+    span: "col-span-1 aspect-[4/3] md:aspect-auto md:h-full",
   },
   {
-    id: 6,
-    title: "TAHSIN & MIM",
-    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop",
-    span: "col-span-1",
+    id: "15",
+    title: "Atik & Auhona — Intimate Wedding",
+    category: "Muslim Wedding",
+    src: "/images/wedding/weddingalbum15/C15.jpg",
+    span: "col-span-1 aspect-[4/3] md:aspect-auto md:h-full",
   },
   {
-    id: 7,
-    title: "RAYHAN & NISHI",
-    src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop",
-    span: "col-span-1 md:col-span-2",
+    id: "16",
+    title: "Arnob & Tarannum — Haldi Highlights",
+    category: "Haldi",
+    src: "/images/wedding/covers/H16.jpg",
+    span: "col-span-1 md:col-span-2 aspect-[16/9] md:aspect-[21/10]",
   },
 ];
 
-const videos = [
+// --- Real Wedding Films (Direct YouTube Embeds) ---
+const featuredFilms = [
   {
     id: 1,
-    title: "ARNOB & TARANNUM HALDI",
-    thumb:
-      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=600&auto=format&fit=crop",
+    title: "Arnob & Tarannum's Haldi Trailer",
+    category: "Haldi",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/iEJ73IuorfI",
   },
   {
     id: 2,
-    title: "TEARS OF JOY",
-    thumb:
-      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=600&auto=format&fit=crop",
+    title: "Tears of Joy: A Wedding Story",
+    category: "Muslim Wedding",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/Cu1jOBAAh5U",
   },
   {
     id: 3,
-    title: "RAFI & TAZRI HIGHLIGHTS",
-    thumb:
-      "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=600&auto=format&fit=crop",
+    title: "Rafi & Tazri's Wedding Highlights",
+    category: "Muslim Wedding",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/_xvPWqeKVoA",
   },
   {
     id: 4,
-    title: "BANGALI GAYE HOLUD",
-    thumb:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=600&auto=format&fit=crop",
+    title: "Cinematic Bangali Gaye Holud || Samudro & Ananna",
+    category: "Haldi",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/S2z1qfBUPRY",
   },
   {
     id: 5,
-    title: "WEDDING MOMENTS",
-    thumb:
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=600&auto=format&fit=crop",
+    title: "Wedding Moments || Sumaiya & Uday",
+    category: "Muslim Wedding",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/k5OTlbekLj8",
   },
   {
     id: 6,
-    title: "ROYAL WEDDING",
-    thumb:
-      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=600&auto=format&fit=crop",
+    title: "Cinematic Haldi Trailer || Sumaiya & Uday",
+    category: "Haldi",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/HKe42qUTunI",
   },
   {
     id: 7,
-    title: "INTERIOR DESIGN PROMO",
-    thumb:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop",
+    title: "Royal Wedding Trailer || Samir & Tulu",
+    category: "Muslim Wedding",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/8CS0C6I7198",
   },
   {
     id: 8,
-    title: "CORPORATE ODYSSEY",
-    thumb:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=600&auto=format&fit=crop",
+    title: "Royal Reception Highlights || Rahat & Nidhi",
+    category: "Reception",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/Th5iQ499OSU",
   },
 ];
 
@@ -168,7 +177,7 @@ const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
@@ -185,7 +194,6 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  // Review Slider Logic
   useEffect(() => {
     const reviewTimer = setInterval(() => {
       setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
@@ -268,6 +276,9 @@ export default function Home() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
+          <span className="text-[10px] uppercase tracking-[0.4em] text-[#cba677] block mb-2 font-light">
+            Featured Stories
+          </span>
           <h2
             className={`text-4xl md:text-5xl text-white tracking-wider mb-4 ${cormorant.className}`}
           >
@@ -283,24 +294,36 @@ export default function Home() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
-          {archives.map((album) => (
+          {featuredArchives.map((album) => (
             <motion.div
               key={album.id}
               variants={sectionVariants}
-              className={`group relative overflow-hidden bg-black/20 aspect-[4/3] ${album.span}`}
+              className={`group relative overflow-hidden bg-black/30 rounded-sm border border-white/10 hover:border-[#cba677]/60 transition-all duration-500 shadow-xl ${album.span}`}
             >
-              <Image
-                src={album.src}
-                alt={album.title}
-                fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100"
-                unoptimized
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3E141E]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] font-medium text-white">
-                  {album.title}
-                </h3>
-              </div>
+              <Link href={`/wedding/${album.id}`} className="block w-full h-full">
+                <Image
+                  src={album.src}
+                  alt={album.title}
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent group-hover:from-black/95 transition-all duration-500 flex flex-col justify-end p-6">
+                  <span className="text-[9px] uppercase tracking-[0.3em] text-[#cba677] mb-1 font-light">
+                    {album.category}
+                  </span>
+                  <div className="flex items-end justify-between gap-4">
+                    <h3
+                      className={`text-xl md:text-2xl text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 ${cormorant.className}`}
+                    >
+                      {album.title}
+                    </h3>
+                    <span className="text-[10px] uppercase tracking-[0.25em] text-[#cba677] opacity-0 group-hover:opacity-100 transition-opacity duration-500 shrink-0">
+                      Explore ↗
+                    </span>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
@@ -316,7 +339,7 @@ export default function Home() {
       </section>
 
       {/* ================= STORIES IN MOTION ================= */}
-      <section className="py-24 px-6 lg:px-12 bg-black/20">
+      <section className="py-24 px-6 lg:px-12 bg-black/20 border-y border-white/5">
         <div className="max-w-[1400px] mx-auto">
           <motion.div
             variants={sectionVariants}
@@ -325,6 +348,9 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
+            <span className="text-[10px] uppercase tracking-[0.4em] text-[#cba677] block mb-2 font-light">
+              Cinematography Showcase
+            </span>
             <h2
               className={`text-4xl md:text-5xl text-white tracking-wider mb-4 ${cormorant.className}`}
             >
@@ -340,43 +366,35 @@ export default function Home() {
             viewport={{ once: true }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
           >
-            {videos.map((video) => (
+            {featuredFilms.map((film) => (
               <motion.div
-                key={video.id}
+                key={film.id}
                 variants={sectionVariants}
-                className="group cursor-pointer"
+                className="group flex flex-col"
               >
-                <div className="relative aspect-video overflow-hidden bg-[#2a0e14] mb-4">
-                  <Image
-                    src={video.thumb}
-                    alt={video.title}
-                    fill
-                    className="object-cover opacity-70 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-12 h-8 bg-red-600 rounded-lg flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                      <svg
-                        className="w-4 h-4 text-white fill-current"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
+                <div className="relative aspect-video overflow-hidden bg-black/50 mb-3 rounded-sm shadow-xl border border-white/10 group-hover:border-[#cba677]/50 transition-all duration-500">
+                  <iframe
+                    src={film.youtubeEmbedUrl}
+                    title={film.title}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </div>
-                <h3 className="text-[9px] uppercase tracking-[0.2em] font-medium text-gray-300 group-hover:text-[#cba677] transition-colors duration-300">
-                  {video.title}
+                <span className="text-[9px] uppercase tracking-[0.25em] text-[#cba677] font-light mb-0.5">
+                  {film.category}
+                </span>
+                <h3
+                  className={`text-base md:text-lg text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 line-clamp-1 ${cormorant.className}`}
+                >
+                  {film.title}
                 </h3>
               </motion.div>
             ))}
           </motion.div>
 
           <div className="mt-16 flex justify-center">
-            <Link
-              href="/cinematography"
-              className="group flex items-center space-x-4"
-            >
+            <Link href="/wedding" className="group flex items-center space-x-4">
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#cba677] group-hover:text-white transition-colors duration-300">
                 Watch The Stories Unfold
               </span>
@@ -414,7 +432,7 @@ export default function Home() {
                 <span
                   className={`text-[#cba677] text-6xl md:text-7xl mb-4 leading-none block ${cormorant.className}`}
                 >
-                  "
+                  &ldquo;
                 </span>
                 <p className="text-gray-300 font-light text-base md:text-xl tracking-wide leading-relaxed mb-8 italic max-w-2xl mx-auto">
                   {reviews[currentReview].text}
