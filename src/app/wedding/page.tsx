@@ -688,7 +688,7 @@ export default function WeddingPage() {
       <section className="relative h-[35vh] w-full overflow-hidden flex items-center justify-center pt-24">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop"
+            src="/images/about/cv.jpg"
             alt="Wedding Hero"
             fill
             className="object-cover"

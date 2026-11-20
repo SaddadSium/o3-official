@@ -182,7 +182,7 @@ export default function AboutPage() {
           className="absolute inset-0 w-full h-full"
         >
           <Image
-            src="/images/about/aboutcover.webp"
+            src="/images/about/HA.jpg"
             alt="The House of Ocean of Orchid"
             fill
             className="object-cover"

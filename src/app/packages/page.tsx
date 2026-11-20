@@ -356,7 +356,7 @@ export default function PackagesPage() {
       <section className="relative w-full overflow-hidden flex items-center justify-center pt-28 pb-8">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop"
+            src="/images/about/cv.jpg"
             alt="Investment & Packages"
             fill
             className="object-cover"

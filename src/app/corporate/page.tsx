@@ -271,7 +271,7 @@ export default function CorporatePage() {
       <section className="relative h-[35vh] w-full overflow-hidden flex items-center justify-center pt-24">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070&auto=format&fit=crop"
+            src="/images/corporate/cover.jpg"
             alt="Corporate Hero"
             fill
             className="object-cover"

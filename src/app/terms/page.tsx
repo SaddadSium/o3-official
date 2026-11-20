@@ -31,7 +31,7 @@ export default function TermsConditionsPage() {
       <section className="relative h-[60vh] w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2070&auto=format&fit=crop"
+            src="/images/about/terms.jpg"
             alt="Terms and Conditions Hero"
             fill
             className="object-cover"

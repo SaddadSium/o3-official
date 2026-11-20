@@ -31,7 +31,7 @@ export default function PrivacyPolicyPage() {
       <section className="relative h-[60vh] w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=2070&auto=format&fit=crop"
+            src="/images/about/privacy.jpg"
             alt="Privacy Policy Hero"
             fill
             className="object-cover"

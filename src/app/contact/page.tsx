@@ -100,7 +100,7 @@ export default function ContactPage() {
       <section className="relative w-full overflow-hidden flex items-center justify-center pt-28 pb-10">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop"
+            src="images/about/cv.jpg"
             alt="Contact Ocean of Orchid"
             fill
             className="object-cover"

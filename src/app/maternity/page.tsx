@@ -82,10 +82,10 @@ export default function MaternityBirthdayPage() {
       <section className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=2070&auto=format&fit=crop"
+            src="/images/Birthday/Bcv.jpg"
             alt="Maternity and Birthday Hero"
             fill
-            className="object-cover opacity-75"
+            className="object-cover opacity-85"
             priority
             unoptimized
           />
