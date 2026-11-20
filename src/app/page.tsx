@@ -25,7 +25,6 @@ const heroImages = [
   "/images/hero/hero5.webp",
 ];
 
-// --- Featured Wedding Albums (Linked directly to /wedding/[id]) ---
 const featuredArchives = [
   {
     id: "1",
@@ -78,7 +77,6 @@ const featuredArchives = [
   },
 ];
 
-// --- Real Wedding Films (Direct YouTube Embeds) ---
 const featuredFilms = [
   {
     id: 1,
@@ -139,7 +137,7 @@ const reviews = [
   },
   {
     id: 2,
-    name: "Tonmoy Saha – Tech Care",
+    name: "Tonmoy Saha — Tech Care",
     role: "Corporate Event",
     text: "Working with Md. Nakib Nizam and the Ocean of Orchid team has always been a great experience. Their photography perfectly captures the energy and important moments of our corporate events. What I appreciate most is their professionalism, creative approach, and attention to detail. They are always cooperative, punctual, and committed to delivering quality work. Truly a reliable team for corporate photography and event coverage. Highly recommended!",
   },
@@ -151,7 +149,7 @@ const reviews = [
   },
   {
     id: 4,
-    name: "Iqbal Mahmud – FTL",
+    name: "Iqbal Mahmud — FTL",
     role: "Corporate Client",
     text: "I've had a wonderful experience working with Md. Nakib Nizam on several occasions. His passion for photography and ability to capture meaningful moments really stand out. From understanding our requirements to delivering the final photographs, everything was handled with professionalism and care. His creative vision, dedication, and timely delivery make him someone you can genuinely rely on. Wishing Nakib and the entire Ocean of Orchid team continued success!",
   },
@@ -159,11 +157,10 @@ const reviews = [
     id: 5,
     name: "Munia Islam",
     role: "Wedding Client",
-    text: " had a wonderful experience with Ocean of Orchid! Booked them for all three of my events, and I would happily choose them again, InshaAllah. Their team was professional, friendly, and incredibly cooperative, making everyone feel comfortable throughout the sessions. Their respectful behavior and attention to clients truly stood out. The photographs turned out absolutely beautiful, with every special moment captured so perfectly. Thank you for turning our precious memories into something we can cherish forever. Highly recommended! ❤️",
+    text: "I had a wonderful experience with Ocean of Orchid! Booked them for all three of my events, and I would happily choose them again, InshaAllah. Their team was professional, friendly, and incredibly cooperative, making everyone feel comfortable throughout the sessions. Their respectful behavior and attention to clients truly stood out. The photographs turned out absolutely beautiful, with every special moment captured so perfectly. Thank you for turning our precious memories into something we can cherish forever. Highly recommended! ❤️",
   },
 ];
 
-// --- Animation Variants ---
 const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -197,13 +194,20 @@ export default function Home() {
   useEffect(() => {
     const reviewTimer = setInterval(() => {
       setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
-    }, 4000);
+    }, 4500);
     return () => clearInterval(reviewTimer);
   }, []);
 
+  const handlePrevReview = () => {
+    setCurrentReview((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
+  };
+
+  const handleNextReview = () => {
+    setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <div className={`bg-[#3E141E] min-h-screen text-white ${jost.className}`}>
-      {/* ================= HERO SECTION ================= */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <AnimatePresence mode="popLayout">
           <motion.div
@@ -267,7 +271,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ================= VISUAL ANTHOLOGY ================= */}
       <section className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
         <motion.div
           variants={sectionVariants}
@@ -338,7 +341,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= STORIES IN MOTION ================= */}
       <section className="py-24 px-6 lg:px-12 bg-black/20 border-y border-white/5">
         <div className="max-w-[1400px] mx-auto">
           <motion.div
@@ -404,64 +406,109 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= CLIENT REVIEWS ================= */}
-      <section className="py-32 px-6 lg:px-12 max-w-4xl mx-auto text-center overflow-hidden">
+      <section className="py-28 px-6 lg:px-12 max-w-5xl mx-auto text-center relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#cba677]/10 rounded-full blur-[130px] pointer-events-none"></div>
+
         <motion.div
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
+          className="relative z-10"
         >
+          <span className="text-[10px] uppercase tracking-[0.4em] text-[#cba677] block mb-2 font-light">
+            Client Testimonials
+          </span>
           <h2
             className={`text-4xl md:text-5xl text-white tracking-wider mb-4 ${cormorant.className}`}
           >
             Words Of Grace
           </h2>
-          <div className="w-12 h-[1px] bg-[#cba677] mx-auto mb-16"></div>
+          <div className="w-12 h-[1px] bg-[#cba677] mx-auto mb-14"></div>
 
-          <div className="relative min-h-[250px] flex flex-col items-center justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentReview}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="absolute w-full"
-              >
-                <span
-                  className={`text-[#cba677] text-6xl md:text-7xl mb-4 leading-none block ${cormorant.className}`}
+          <div className="relative bg-black/30 backdrop-blur-md border border-[#cba677]/20 rounded-sm px-6 py-10 sm:px-12 sm:py-14 md:px-16 md:py-16 shadow-2xl overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-[#cba677]/70"></div>
+
+            <span className="absolute top-5 right-6 text-[10px] tracking-[0.3em] text-[#cba677]/60 font-light">
+              0{currentReview + 1} / 0{reviews.length}
+            </span>
+
+            <div className="flex justify-center items-center gap-1.5 mb-5 text-[#cba677] text-xs tracking-widest">
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+            </div>
+
+            <div className="min-h-[220px] md:min-h-[200px] flex items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentReview}
+                  initial={{ opacity: 0, x: 60 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -60 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="w-full"
                 >
-                  &ldquo;
-                </span>
-                <p className="text-gray-300 font-light text-base md:text-xl tracking-wide leading-relaxed mb-8 italic max-w-2xl mx-auto">
-                  {reviews[currentReview].text}
-                </p>
-                <div className="flex flex-col items-center justify-center">
-                  <h4 className="text-[12px] uppercase tracking-[0.2em] font-medium text-white mb-1">
-                    {reviews[currentReview].name}
-                  </h4>
-                  <span className="text-[10px] text-gray-500 tracking-[0.1em] font-light">
-                    {reviews[currentReview].role}
+                  <span
+                    className={`text-[#cba677]/40 text-5xl md:text-6xl leading-none block mb-2 select-none ${cormorant.className}`}
+                  >
+                    &ldquo;
                   </span>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+
+                  <p className="text-gray-200 font-light text-sm sm:text-base md:text-[17px] tracking-wide leading-relaxed md:leading-loose mb-8 italic max-w-3xl mx-auto">
+                    {reviews[currentReview].text}
+                  </p>
+
+                  <div className="w-10 h-[1px] bg-[#cba677]/40 mx-auto mb-5"></div>
+
+                  <div className="flex flex-col items-center justify-center">
+                    <h4
+                      className={`text-xl md:text-2xl text-[#cba677] tracking-wide mb-1 ${cormorant.className}`}
+                    >
+                      {reviews[currentReview].name}
+                    </h4>
+                    <span className="text-[10px] uppercase text-gray-400 tracking-[0.28em] font-light">
+                      {reviews[currentReview].role}
+                    </span>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
 
-          <div className="flex justify-center space-x-3 mt-12">
-            {reviews.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentReview(index)}
-                className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${
-                  currentReview === index
-                    ? "bg-[#cba677] w-6"
-                    : "bg-white/30 hover:bg-white/60"
-                }`}
-                aria-label={`Go to review ${index + 1}`}
-              />
-            ))}
+          <div className="flex items-center justify-center gap-6 mt-10">
+            <button
+              onClick={handlePrevReview}
+              aria-label="Previous review"
+              className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-gray-300 hover:border-[#cba677] hover:bg-[#cba677] hover:text-[#3E141E] transition-all duration-300 text-sm"
+            >
+              ←
+            </button>
+
+            <div className="flex items-center space-x-2.5">
+              {reviews.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentReview(index)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    currentReview === index
+                      ? "bg-[#cba677] w-8"
+                      : "bg-white/25 w-1.5 hover:bg-white/60"
+                  }`}
+                  aria-label={`Go to review ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={handleNextReview}
+              aria-label="Next review"
+              className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-gray-300 hover:border-[#cba677] hover:bg-[#cba677] hover:text-[#3E141E] transition-all duration-300 text-sm"
+            >
+              →
+            </button>
           </div>
         </motion.div>
       </section>
