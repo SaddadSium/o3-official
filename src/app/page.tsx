@@ -133,33 +133,33 @@ const featuredFilms = [
 const reviews = [
   {
     id: 1,
-    name: "Era & Emran",
+    name: "Tanvir & Sanjida",
     role: "Wedding Client",
-    text: "Ocean of Orchid captured the raw emotions of our wedding day perfectly. The cinematic video still makes us tear up. Truly timeless!",
+    text: "Had a wonderful experience with Ocean of Orchid! From capturing all three of our special events to handling every little detail, their team was professional, patient, and incredibly supportive. The crew's behavior was 10/10, and the quality of work was equally amazing. They truly listen, understand a bride's perspective, and know how to capture the most beautiful emotions and delicate moments. Their creativity, attention to detail, and ability to handle unexpected situations made everything so much easier. Couldn't have asked for a better team! Highly recommended to everyone looking for photographers they can genuinely trust. ❤️",
   },
   {
     id: 2,
-    name: "Crown Micro Global",
+    name: "Tonmoy Saha – Tech Care",
     role: "Corporate Event",
-    text: "Professional, punctual, and incredibly creative. They elevated our corporate event's visual presence beyond our expectations.",
+    text: "Working with Md. Nakib Nizam and the Ocean of Orchid team has always been a great experience. Their photography perfectly captures the energy and important moments of our corporate events. What I appreciate most is their professionalism, creative approach, and attention to detail. They are always cooperative, punctual, and committed to delivering quality work. Truly a reliable team for corporate photography and event coverage. Highly recommended!",
   },
   {
     id: 3,
-    name: "Samara & Anik",
+    name: "Nahid & Tasnim",
     role: "Wedding Client",
-    text: "The team made us feel so comfortable. The photos look like they belong in a luxury magazine. Highly recommended!",
+    text: "We had an amazing experience with Ocean of Orchid! Their team was incredibly professional, friendly, and made us feel comfortable throughout every event. We absolutely loved our wedding photographs; every picture beautifully captures the emotions, little moments, and memories that made our day so special. A big thank you to the entire Ocean of Orchid team for their dedication and hard work, and special thanks to Nakib Bhaiya for making the whole experience even more memorable. Couldn't have asked for a better team to capture our special day! ❤️",
   },
   {
     id: 4,
-    name: "JCX Architects",
-    role: "Interior Shoot",
-    text: "Their architectural and interior photography is unmatched. The attention to lighting and detail is exactly what we needed for our portfolio.",
+    name: "Iqbal Mahmud – FTL",
+    role: "Corporate Client",
+    text: "I've had a wonderful experience working with Md. Nakib Nizam on several occasions. His passion for photography and ability to capture meaningful moments really stand out. From understanding our requirements to delivering the final photographs, everything was handled with professionalism and care. His creative vision, dedication, and timely delivery make him someone you can genuinely rely on. Wishing Nakib and the entire Ocean of Orchid team continued success!",
   },
   {
     id: 5,
-    name: "Tahsin & Mim",
+    name: "Munia Islam",
     role: "Wedding Client",
-    text: "Choosing Ocean of Orchid was the best decision for our special day. The candid moments they caught are our absolute favorites.",
+    text: " had a wonderful experience with Ocean of Orchid! Booked them for all three of my events, and I would happily choose them again, InshaAllah. Their team was professional, friendly, and incredibly cooperative, making everyone feel comfortable throughout the sessions. Their respectful behavior and attention to clients truly stood out. The photographs turned out absolutely beautiful, with every special moment captured so perfectly. Thank you for turning our precious memories into something we can cherish forever. Highly recommended! ❤️",
   },
 ];
 
