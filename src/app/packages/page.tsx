@@ -293,29 +293,6 @@ const weddingPackages: WeddingPackage[] = [
       "Hardbound Heirloom Photo-Book, Custom Engraved Drive in Presentation Box & Permanent Cloud Vault",
     ],
   },
-  {
-    id: 13,
-    tier: "Nakib Nizam Classic Series",
-    crewBadge: "3P 3C + Stylist",
-    title: "Orchid Bridal",
-    tagline: "The Bridal Sanctuary Edition",
-    subtitle:
-      "Best suited for Brides seeking an effortless, unhurried experience, personal comfort & high-fashion editorial portraits",
-    price: "৳ 1,35,000",
-    image: "/images/wedding/covers/C12.jpg",
-    quote:
-      "True elegance is effortless—where serene moments, mindful grace, and haute portraiture converge.",
-    features: [
-      "Creative Direction: Guided & art-directed by Chief Photographer Md. Nakib Nizam",
-      "Bridal Liaison & Styling Director (Ramisa): Dedicated Floor Advocate for veil, lehenga, jewelry, posture & unhurried comfort pacing",
-      "Stills Unit: 2 Lead Photographers (Editorial Bridal Couture) + 1 Core Photographer (Candids & Rituals)",
-      "Motion Unit: Lead Cinematographers (Fluid gimbal tracking, close-up emotive nuances & full ritual film)",
-      "In-Person Atelier Consultation & Bespoke Prop & Flora Styling Suite",
-      "Dedicated High-Fashion Bridal Suite Portrait Session + Comprehensive Event Coverage",
-      "1 Signature Cinematic Teaser + 1 Extended Narrative Documentary + 2 Curated Vertical Reels",
-      "Handcrafted Fine-Art Photobook, Custom Presentation USB Drive & Private Online Proofing Gallery",
-    ],
-  },
 ];
 
 const tierOrder: PackageTierKey[] = [

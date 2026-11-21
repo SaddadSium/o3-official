@@ -5,6 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import {
+  corporateAlbums,
+  corporateFilms,
+  corporateDocumentaries,
+} from "@/data/corporateData";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -17,248 +22,69 @@ const jost = Jost({
   weight: ["200", "300", "400", "500"],
 });
 
-// --- Mock Data for Corporate Photography (Albums/Projects) ---
-export const corporateAlbums = [
-  {
-    id: "1",
-    title: "Tree Fair 2025  — Ponchovujh Foundation",
-    category: "Corporate Expo",
-    src: "/images/corporate/album1/P7.jpg",
-    coverSrc: "/images/corporate/album1/P1.jpg", 
-    count: "32 Photos",
-    photos: [
-      "/images/corporate/album1/P1.jpg",
-      "/images/corporate/album1/P2.jpg",
-      "/images/corporate/album1/P3.jpg",
-      "/images/corporate/album1/P4.jpg",
-      "/images/corporate/album1/P5.jpg",
-      "/images/corporate/album1/P6.jpg",
-      "/images/corporate/album1/P7.jpg",
-      "/images/corporate/album1/P8.jpg",
-      "/images/corporate/album1/P9.jpg",
-      "/images/corporate/album1/P10.jpg",
-      "/images/corporate/album1/P11.jpg",
-      "/images/corporate/album1/P12.jpg",
-      "/images/corporate/album1/P13.jpg",
-      "/images/corporate/album1/P14.jpg",
-      "/images/corporate/album1/P15.jpg",
-      "/images/corporate/album1/P16.jpg",
-      "/images/corporate/album1/P17.jpg",
-      "/images/corporate/album1/P18.jpg",
-      "/images/corporate/album1/P19.jpg",
-      "/images/corporate/album1/P20.jpg",
-      "/images/corporate/album1/P21.jpg",
-      "/images/corporate/album1/P22.jpg",
-      "/images/corporate/album1/P23.jpg",
-      "/images/corporate/album1/P24.jpg",
-      "/images/corporate/album1/P25.jpg",
-      "/images/corporate/album1/P26.jpg",
-      "/images/corporate/album1/P27.jpg",
-      "/images/corporate/album1/P28.jpg",
-      "/images/corporate/album1/P29.jpg",
-      "/images/corporate/album1/P30.jpg",
-      "/images/corporate/album1/P31.jpg",
-      "/images/corporate/album1/P32.jpg"
-    ],
-  },
-  {
-    id: "2",
-    title: "OFHA 5s Academy Cup",
-    category: "Corporate Expo",
-    src: "/images/corporate/album2/P10.jpg",
-    coverSrc: "/images/corporate/album2/P31.jpg",
-    count: "35 Photos",
-    photos: [
-      "/images/corporate/album2/P1.jpg",
-      "/images/corporate/album2/P2.jpg",
-      "/images/corporate/album2/P3.jpg",
-      "/images/corporate/album2/P4.jpg",
-      "/images/corporate/album2/P5.jpg",
-      "/images/corporate/album2/P6.jpg",
-      "/images/corporate/album2/P7.jpg",
-      "/images/corporate/album2/P8.jpg",
-      "/images/corporate/album2/P9.jpg",
-      "/images/corporate/album2/P10.jpg",
-      "/images/corporate/album2/P11.jpg",
-      "/images/corporate/album2/P12.jpg",
-      "/images/corporate/album2/P13.jpg",
-      "/images/corporate/album2/P14.jpg",
-      "/images/corporate/album2/P15.jpg",
-      "/images/corporate/album2/P16.jpg",
-      "/images/corporate/album2/P17.jpg",
-      "/images/corporate/album2/P18.jpg",
-      "/images/corporate/album2/P19.jpg",
-      "/images/corporate/album2/P20.jpg",
-      "/images/corporate/album2/P21.jpg",
-      "/images/corporate/album2/P22.jpg",
-      "/images/corporate/album2/P23.jpg",
-      "/images/corporate/album2/P24.jpg",
-      "/images/corporate/album2/P25.jpg",
-      "/images/corporate/album2/P26.jpg",
-      "/images/corporate/album2/P27.jpg",
-      "/images/corporate/album2/P28.jpg",
-      "/images/corporate/album2/P29.jpg",
-      "/images/corporate/album2/P30.jpg",
-      "/images/corporate/album2/P31.jpg",
-      "/images/corporate/album2/P32.jpg",
-      "/images/corporate/album2/P33.jpg",
-      "/images/corporate/album2/P34.jpg",
-      "/images/corporate/album2/P35.jpg",
-    ],
-  },
-  {
-    id: "3",
-    title: "BIMSSCON 2025 — 6th Edition",
-    category: "Corporate Event",
-    src: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000&auto=format&fit=crop",
-    coverSrc: "", 
-    count: "4 Photos",
-    photos: [
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "4",
-    title: "Crown Micro — Global Expo 2025",
-    category: "Corporate Expo",
-    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000&auto=format&fit=crop",
-    coverSrc: "", // Add specific hero cover link if you want, else it falls back to src
-    count: "4 Photos",
-    photos: [
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "11",
-    title: "JCX Architects — Interior Showcase",
-    category: "Architecture",
-    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop",
-    coverSrc: "",
-    count: "4 Photos",
-    photos: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "12",
-    title: "Tech Summit Dhaka — Annual Gala",
-    category: "Summit",
-    src: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000&auto=format&fit=crop",
-    coverSrc: "",
-    count: "4 Photos",
-    photos: [
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "13",
-    title: "Global Logistics — Brand Campaign",
-    category: "Campaign",
-    src: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop",
-    coverSrc: "",
-    count: "4 Photos",
-    photos: [
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "14",
-    title: "Executive Portraits — Leadership Team",
-    category: "Portraits",
-    src: "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1000&auto=format&fit=crop",
-    coverSrc: "",
-    count: "4 Photos",
-    photos: [
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "15",
-    title: "Modern Workspace — Architectural Shoot",
-    category: "Architecture",
-    src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1000&auto=format&fit=crop",
-    coverSrc: "",
-    count: "4 Photos",
-    photos: [
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
-    ],
-  },
-];
-
-// --- Mock Data for Corporate Cinematography (Videos) ---
-const corporateFilms = [
-  {
-    id: 1,
-    title: "Interior Design & Architecture Promo",
-    youtubeEmbedUrl: "https://www.youtube.com/embed/iEJ73IuorfI",
-  },
-  {
-    id: 2,
-    title: "Corporate Odyssey — Annual Event Highlights",
-    youtubeEmbedUrl: "https://www.youtube.com/embed/Cu1jOBAAh5U",
-  },
-  {
-    id: 3,
-    title: "Savor Expo 2025 — Brand Commercial",
-    youtubeEmbedUrl: "https://www.youtube.com/embed/_xvPWqeKVoA",
-  },
-  {
-    id: 4,
-    title: "Workspace Culture — Recruitment Film",
-    youtubeEmbedUrl: "https://www.youtube.com/embed/S2z1qfBUPRY",
-  },
-];
-
-// --- Mock Data for Corporate Documentaries (Videos) ---
-const corporateDocumentaries = [
-  {
-    id: 1,
-    title: "Behind the Brand — Industry Leaders Documentary",
-    youtubeEmbedUrl: "https://www.youtube.com/embed/k5OTlbekLj8",
-  },
-  {
-    id: 2,
-    title: "Sustainable Futures — Corporate Social Responsibility",
-    youtubeEmbedUrl: "https://www.youtube.com/embed/HKe42qUTunI",
-  },
-  {
-    id: 3,
-    title: "The Journey of Innovation — Tech Doc",
-    youtubeEmbedUrl: "https://www.youtube.com/embed/8CS0C6I7198",
-  },
-  {
-    id: 4,
-    title: "Founders' Vision — Enterprise Documentary",
-    youtubeEmbedUrl: "https://www.youtube.com/embed/Th5iQ499OSU",
-  },
-];
-
 const fadeVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.5, ease: "easeIn" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
 };
+
+function getYouTubeId(url: string): string {
+  const match = url.match(/embed\/([a-zA-Z0-9_-]{11})/);
+  return match ? match[1] : "";
+}
+
+function LiteYouTubePlayer({
+  embedUrl,
+  title,
+}: {
+  embedUrl: string;
+  title: string;
+}) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoId = getYouTubeId(embedUrl);
+
+  if (!videoId) return null;
+
+  if (isPlaying) {
+    return (
+      <iframe
+        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+        title={title}
+        className="w-full h-full"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => setIsPlaying(true)}
+      aria-label={`Play ${title}`}
+      className="relative w-full h-full group cursor-pointer block overflow-hidden bg-black focus:outline-none"
+    >
+      <img
+        src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+        alt={title}
+        loading="lazy"
+        decoding="async"
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-85 group-hover:opacity-100"
+      />
+      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/15 transition-colors duration-300 flex items-center justify-center">
+        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#3E141E]/85 border border-[#cba677] flex items-center justify-center text-[#cba677] group-hover:bg-[#cba677] group-hover:text-[#3E141E] group-hover:scale-110 transition-all duration-300 shadow-2xl">
+          <svg
+            className="w-5 h-5 sm:w-6 sm:h-6 ml-0.5"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+      </div>
+    </button>
+  );
+}
 
 export default function CorporatePage() {
   const [activeTab, setActiveTab] = useState<
@@ -266,17 +92,18 @@ export default function CorporatePage() {
   >("photography");
 
   return (
-    <div className={`bg-[#3E141E] min-h-screen text-white ${jost.className}`}>
-      {/* ================= HERO SECTION ================= */}
-      <section className="relative h-[35vh] w-full overflow-hidden flex items-center justify-center pt-24">
+    <div
+      className={`bg-[#3E141E] min-h-screen text-white overflow-x-hidden ${jost.className}`}
+    >
+      <section className="relative h-[35vh] min-h-[260px] w-full overflow-hidden flex items-center justify-center pt-24">
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/images/corporate/cover.jpg"
             alt="Corporate Hero"
             fill
-            className="object-cover"
             priority
-            unoptimized
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/60 bg-gradient-to-t from-[#3E141E] via-black/40 to-black/30"></div>
         </div>
@@ -285,7 +112,7 @@ export default function CorporatePage() {
           <motion.span
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.9 }}
             className="text-[9px] uppercase tracking-[0.4em] text-[#cba677] block mb-1.5 font-light"
           >
             Commercial Excellence
@@ -293,7 +120,7 @@ export default function CorporatePage() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            transition={{ duration: 0.9, delay: 0.2 }}
             className={`text-4xl md:text-6xl text-white tracking-wide ${cormorant.className}`}
           >
             Corporate Solutions
@@ -301,15 +128,18 @@ export default function CorporatePage() {
         </div>
       </section>
 
-      {/* ================= TAB SWITCHER SECTION (3 Tabs) ================= */}
-      <section className="py-8 px-6 max-w-7xl mx-auto">
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 border-b border-white/10 pb-4">
+      <section className="py-8 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-16 border-b border-white/10 pb-4">
           <button
             onClick={() => setActiveTab("photography")}
             className="relative group focus:outline-none"
           >
             <span
-              className={`text-xl md:text-3xl tracking-widest transition-colors duration-500 ${cormorant.className} ${activeTab === "photography" ? "text-white italic font-medium" : "text-gray-400 hover:text-white"}`}
+              className={`text-xl md:text-3xl tracking-widest transition-colors duration-500 ${cormorant.className} ${
+                activeTab === "photography"
+                  ? "text-white italic font-medium"
+                  : "text-gray-400 hover:text-white"
+              }`}
             >
               Photography
             </span>
@@ -326,7 +156,11 @@ export default function CorporatePage() {
             className="relative group focus:outline-none"
           >
             <span
-              className={`text-xl md:text-3xl tracking-widest transition-colors duration-500 ${cormorant.className} ${activeTab === "cinematography" ? "text-white italic font-medium" : "text-gray-400 hover:text-white"}`}
+              className={`text-xl md:text-3xl tracking-widest transition-colors duration-500 ${cormorant.className} ${
+                activeTab === "cinematography"
+                  ? "text-white italic font-medium"
+                  : "text-gray-400 hover:text-white"
+              }`}
             >
               Cinematography
             </span>
@@ -343,7 +177,11 @@ export default function CorporatePage() {
             className="relative group focus:outline-none"
           >
             <span
-              className={`text-xl md:text-3xl tracking-widest transition-colors duration-500 ${cormorant.className} ${activeTab === "documentary" ? "text-white italic font-medium" : "text-gray-400 hover:text-white"}`}
+              className={`text-xl md:text-3xl tracking-widest transition-colors duration-500 ${cormorant.className} ${
+                activeTab === "documentary"
+                  ? "text-white italic font-medium"
+                  : "text-gray-400 hover:text-white"
+              }`}
             >
               Documentary
             </span>
@@ -356,11 +194,8 @@ export default function CorporatePage() {
           </button>
         </div>
 
-        {/* ================= CONTENT DISPLAY AREA ================= */}
-        <div className="mt-12">
+        <div className="mt-10 pb-16">
           <AnimatePresence mode="wait">
-            
-            {/* 1. PHOTOGRAPHY TAB CONTENT (Cards leading to dynamic ID page) */}
             {activeTab === "photography" && (
               <motion.div
                 key="corporate-photo"
@@ -368,9 +203,9 @@ export default function CorporatePage() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
               >
-                {corporateAlbums.map((album) => (
+                {corporateAlbums.map((album, index) => (
                   <Link
                     key={album.id}
                     href={`/corporate/${album.id}`}
@@ -381,11 +216,13 @@ export default function CorporatePage() {
                         src={album.src}
                         alt={album.title}
                         fill
+                        priority={index < 3}
+                        loading={index < 3 ? "eager" : "lazy"}
+                        unoptimized={album.src.startsWith("http")}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100"
-                        unoptimized
                       />
-                      
-                      {/* Premium Bottom Overlay (Matching Wedding Layout) */}
+
                       <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent group-hover:from-black transition-all duration-500 flex flex-col justify-end p-6 text-center">
                         <span className="text-[10px] uppercase tracking-[0.3em] text-[#cba677] mb-2 font-light">
                           {album.category} &bull; {album.count}
@@ -406,7 +243,6 @@ export default function CorporatePage() {
               </motion.div>
             )}
 
-            {/* 2. CINEMATOGRAPHY TAB CONTENT */}
             {activeTab === "cinematography" && (
               <motion.div
                 key="corporate-cine"
@@ -419,13 +255,10 @@ export default function CorporatePage() {
                 {corporateFilms.map((film) => (
                   <div key={film.id} className="group flex flex-col">
                     <div className="relative aspect-video overflow-hidden bg-black/50 mb-3 rounded-sm shadow-xl border border-white/10 group-hover:border-[#cba677]/50 transition-all duration-500">
-                      <iframe
-                        src={film.youtubeEmbedUrl}
+                      <LiteYouTubePlayer
+                        embedUrl={film.youtubeEmbedUrl}
                         title={film.title}
-                        className="w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
+                      />
                     </div>
                     {film.title && (
                       <h3
@@ -439,7 +272,6 @@ export default function CorporatePage() {
               </motion.div>
             )}
 
-            {/* 3. DOCUMENTARY TAB CONTENT */}
             {activeTab === "documentary" && (
               <motion.div
                 key="corporate-doc"
@@ -452,13 +284,10 @@ export default function CorporatePage() {
                 {corporateDocumentaries.map((doc) => (
                   <div key={doc.id} className="group flex flex-col">
                     <div className="relative aspect-video overflow-hidden bg-black/50 mb-3 rounded-sm shadow-xl border border-white/10 group-hover:border-[#cba677]/50 transition-all duration-500">
-                      <iframe
-                        src={doc.youtubeEmbedUrl}
+                      <LiteYouTubePlayer
+                        embedUrl={doc.youtubeEmbedUrl}
                         title={doc.title}
-                        className="w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
+                      />
                     </div>
                     {doc.title && (
                       <h3
@@ -471,7 +300,6 @@ export default function CorporatePage() {
                 ))}
               </motion.div>
             )}
-
           </AnimatePresence>
         </div>
       </section>
