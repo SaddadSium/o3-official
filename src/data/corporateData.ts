@@ -59,7 +59,7 @@ export const corporateAlbums: CorporateAlbum[] = [
   },
   {
     id: "2",
-    title: "রক্তদাতা সম্মাননা ২০২৬ - Bangladesh Thalassemia Foundation",
+    title: "রক্তদাতা সম্মাননা ২০২৬ — Bangladesh Thalassemia Foundation",
     category: "Corporate Expo",
     src: "/images/corporate/album10/P11.jpg",
     coverSrc: "/images/corporate/album10/P4.jpg",
