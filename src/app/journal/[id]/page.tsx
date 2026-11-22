@@ -47,28 +47,21 @@ export default function JournalDetailPage() {
           href="/journal"
           className="text-xs uppercase tracking-[0.25em] text-[#cba677] underline"
         >
-          ← Back to The Journal
+          ← Back to All Articles
         </Link>
       </div>
     );
   }
 
-  const relatedPosts = journalPosts.filter((item) => item.id !== post.id).slice(0, 2);
+  const relatedPosts = journalPosts
+    .filter((item) => item.id !== post.id)
+    .slice(0, 2);
 
   return (
     <div
       className={`bg-[#3E141E] min-h-screen text-white overflow-x-hidden ${jost.className}`}
     >
-      <div className="absolute top-24 sm:top-28 left-4 sm:left-6 lg:left-12 z-20">
-        <Link
-          href="/journal"
-          className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-[#cba677] bg-black/60 backdrop-blur-md px-3.5 py-2 border border-[#cba677]/30 hover:bg-[#cba677] hover:text-[#3E141E] transition-all duration-300 rounded-sm inline-flex items-center gap-2"
-        >
-          ← Back to Journal
-        </Link>
-      </div>
-
-      <section className="relative h-[60vh] sm:h-[68vh] lg:h-[74vh] min-h-[420px] w-full overflow-hidden flex items-end justify-center pb-14 sm:pb-20">
+      <section className="relative h-[60vh] sm:h-[68vh] lg:h-[74vh] min-h-[420px] w-full overflow-hidden flex items-end justify-center pt-28 pb-14 sm:pb-20">
         <div className="absolute inset-0 w-full h-full">
           <Image
             src={post.image}
@@ -242,6 +235,15 @@ export default function JournalDetailPage() {
             {post.closingImage.caption}
           </figcaption>
         </figure>
+
+        <div className="mt-12 flex justify-center">
+          <Link
+            href="/journal"
+            className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#cba677] bg-black/40 backdrop-blur-md px-6 py-3 border border-[#cba677]/40 hover:bg-[#cba677] hover:text-[#3E141E] transition-all duration-300 rounded-sm inline-flex items-center gap-2"
+          >
+            ← Back to All Articles
+          </Link>
+        </div>
       </article>
 
       <section className="border-t border-white/10 bg-black/20 py-16 sm:py-20 px-5 sm:px-8">

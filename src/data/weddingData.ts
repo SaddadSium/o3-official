@@ -205,7 +205,6 @@ export const weddingAlbums: WeddingAlbum[] = [
       "/images/wedding/weddingalbum5/P3.jpg",
       "/images/wedding/weddingalbum5/P4.jpg",
       "/images/wedding/weddingalbum5/P5.jpg",
-      "/images/wedding/weddingalbum5/P6.jpg",
       "/images/wedding/weddingalbum5/P7.jpg",
       "/images/wedding/weddingalbum5/P8.jpg",
       "/images/wedding/weddingalbum5/P9.jpg",

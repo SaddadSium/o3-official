@@ -64,7 +64,7 @@ export default function AlbumDetailPage() {
           href="/wedding"
           className="text-xs uppercase tracking-[0.25em] text-[#cba677] underline"
         >
-          ← Back to Wedding Stories
+          ← Back to All Wedding Albums
         </Link>
       </div>
     );
@@ -91,16 +91,7 @@ export default function AlbumDetailPage() {
     <div
       className={`bg-[#3E141E] min-h-screen text-white overflow-x-hidden ${jost.className}`}
     >
-      <div className="absolute top-24 sm:top-28 left-4 sm:left-6 lg:left-12 z-20">
-        <Link
-          href="/wedding"
-          className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-[#cba677] bg-black/60 backdrop-blur-md px-3.5 py-2 border border-[#cba677]/30 hover:bg-[#cba677] hover:text-[#3E141E] transition-all duration-300 rounded-sm inline-flex items-center gap-2"
-        >
-          ← Back to Albums
-        </Link>
-      </div>
-
-      <section className="relative h-[55vh] sm:h-[65vh] lg:h-[70vh] min-h-[380px] w-full overflow-hidden flex items-center justify-center">
+      <section className="relative h-[55vh] sm:h-[65vh] lg:h-[70vh] min-h-[380px] w-full overflow-hidden flex items-center justify-center pt-24 sm:pt-28">
         <div className="absolute inset-0 w-full h-full">
           <Image
             key={heroImage}
@@ -108,13 +99,14 @@ export default function AlbumDetailPage() {
             alt={album.title}
             fill
             priority
+            unoptimized={heroImage.startsWith("http")}
             sizes="100vw"
             className="object-cover object-[center_25%] lg:object-center opacity-80"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#3E141E] via-black/50 to-black/40"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto mt-14">
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
           <motion.span
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -174,6 +166,15 @@ export default function AlbumDetailPage() {
             ))}
           </div>
         )}
+
+        <div className="mt-14 sm:mt-20 flex justify-center">
+          <Link
+            href="/wedding"
+            className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#cba677] bg-black/40 backdrop-blur-md px-6 py-3 border border-[#cba677]/40 hover:bg-[#cba677] hover:text-[#3E141E] transition-all duration-300 rounded-sm inline-flex items-center gap-2"
+          >
+            ← Back to All Wedding Albums
+          </Link>
+        </div>
       </section>
 
       <AnimatePresence>
@@ -225,6 +226,7 @@ export default function AlbumDetailPage() {
                   src={validPhotos[lightboxIndex]}
                   alt={`${album.title} - Photo ${lightboxIndex + 1}`}
                   fill
+                  unoptimized={validPhotos[lightboxIndex].startsWith("http")}
                   sizes="95vw"
                   className="object-contain"
                 />
