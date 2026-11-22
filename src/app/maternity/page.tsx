@@ -49,7 +49,7 @@ export default function MaternityBirthdayPage() {
       <section className="relative h-[38vh] min-h-[280px] w-full overflow-hidden flex items-center justify-center pt-24">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/images/Birthday/Bcv.jpg"
+            src="/images/birthday/Bcv.jpg"
             alt="Maternity and Birthday Hero"
             fill
             priority
