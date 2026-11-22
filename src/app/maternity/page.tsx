@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import { maternityAlbums } from "@/data/maternityData";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -16,170 +18,138 @@ const jost = Jost({
   weight: ["200", "300", "400", "500"],
 });
 
-const sectionVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.5, ease: "easeIn" } },
+const fadeVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
 };
 
-// --- Mock Data for Maternity & Birthday Collections ---
-const combinedGalleries = {
-  maternity: [
-    {
-      id: 1,
-      title: "The Expecting Glow",
-      category: "Outdoor Portraiture",
-      src: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=1000&auto=format&fit=crop",
-    },
-    {
-      id: 2,
-      title: "Ethereal Motherhood",
-      category: "Studio Fine Art",
-      src: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1000&auto=format&fit=crop",
-    },
-    {
-      id: 3,
-      title: "Waiting for You",
-      category: "Couple Maternity",
-      src: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1000&auto=format&fit=crop",
-    },
-  ],
-  birthday: [
-    {
-      id: 4,
-      title: "First Birthday Milestone",
-      category: "Baby Cake Smash",
-      src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1000&auto=format&fit=crop",
-    },
-    {
-      id: 5,
-      title: "Grand Birthday Galas",
-      category: "Event Celebration",
-      src: "https://images.unsplash.com/photo-1464349153735-7db50ed83c84?q=80&w=1000&auto=format&fit=crop",
-    },
-    {
-      id: 6,
-      title: "Joyful Childhood Moments",
-      category: "Portraiture",
-      src: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=1000&auto=format&fit=crop",
-    },
-  ],
-};
+const tabs = [
+  { key: "all", label: "All" },
+  { key: "maternity", label: "Maternity" },
+  { key: "birthday", label: "Birthday" },
+] as const;
 
 export default function MaternityBirthdayPage() {
-  const [activeTab, setActiveTab] = useState<"maternity" | "birthday">(
-    "maternity",
+  const [activeTab, setActiveTab] = useState<"all" | "maternity" | "birthday">(
+    "all",
   );
+
+  const filteredAlbums =
+    activeTab === "all"
+      ? maternityAlbums
+      : maternityAlbums.filter((album) => album.type === activeTab);
 
   return (
     <div
-      className={`bg-[#3E141E] min-h-screen text-white relative overflow-hidden ${jost.className}`}
+      className={`bg-[#3E141E] min-h-screen text-white relative overflow-x-hidden ${jost.className}`}
     >
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#cba677]/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#cba677]/10 rounded-full blur-[140px] pointer-events-none"></div>
 
-      {/* ================= HERO SECTION ================= */}
-      <section className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center">
+      <section className="relative h-[38vh] min-h-[280px] w-full overflow-hidden flex items-center justify-center pt-24">
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/images/Birthday/Bcv.jpg"
             alt="Maternity and Birthday Hero"
             fill
-            className="object-cover opacity-85"
             priority
-            unoptimized
+            sizes="100vw"
+            className="object-cover opacity-85"
           />
           <div className="absolute inset-0 bg-black/60 bg-gradient-to-t from-[#3E141E] via-black/40 to-black/30"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 mt-16 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <motion.span
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-[10px] uppercase tracking-[0.4em] text-[#cba677] block mb-3 font-light"
+            transition={{ duration: 0.9 }}
+            className="text-[9px] uppercase tracking-[0.4em] text-[#cba677] block mb-1.5 font-light"
           >
             Precious Memories & Milestones
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className={`text-5xl md:text-8xl text-white tracking-wide ${cormorant.className}`}
+            transition={{ duration: 0.9, delay: 0.2 }}
+            className={`text-4xl md:text-6xl text-white tracking-wide ${cormorant.className}`}
           >
             Maternity & Birthday
           </motion.h1>
         </div>
       </section>
 
-      {/* ================= CATEGORY SWITCHER TABS ================= */}
-      <section className="py-16 px-6 max-w-7xl mx-auto relative z-10">
-        <div className="flex justify-center items-center gap-10 md:gap-16 border-b border-white/10 pb-8">
-          {[
-            { key: "maternity", label: "Maternity Stories" },
-            { key: "birthday", label: "Birthday Celebrations" },
-          ].map((tab) => (
+      <section className="py-8 px-4 sm:px-6 max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 md:gap-20 border-b border-white/15 pb-4">
+          {tabs.map((tab) => (
             <button
               key={tab.key}
-              onClick={() => setActiveTab(tab.key as any)}
-              className="relative group focus:outline-none px-4 py-2"
+              onClick={() => setActiveTab(tab.key)}
+              className="relative group focus:outline-none"
             >
               <span
-                className={`text-lg md:text-2xl uppercase tracking-[0.2em] transition-colors duration-500 font-light ${activeTab === tab.key ? "text-white italic" : "text-gray-400 hover:text-white"}`}
+                className={`text-xl md:text-3xl tracking-widest transition-colors duration-500 ${cormorant.className} ${
+                  activeTab === tab.key
+                    ? "text-white italic font-medium"
+                    : "text-gray-400 hover:text-white"
+                }`}
               >
                 {tab.label}
               </span>
               {activeTab === tab.key && (
                 <motion.div
                   layoutId="activeMatBirthIndicator"
-                  className="absolute bottom-0 left-0 w-full h-[2px] bg-[#cba677]"
+                  className="absolute -bottom-4 left-0 w-full h-[2px] bg-[#cba677]"
                 />
               )}
             </button>
           ))}
         </div>
 
-        {/* ================= GALLERY GRID ================= */}
-        <div className="mt-20">
+        <div className="mt-10 pb-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              variants={sectionVariants}
+              variants={fadeVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
             >
-              {combinedGalleries[activeTab].map((item) => (
-                <motion.div
-                  key={item.id}
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.3 }}
-                  className="group cursor-pointer"
+              {filteredAlbums.map((album, index) => (
+                <Link
+                  key={album.id}
+                  href={`/maternity/${album.id}`}
+                  className="group cursor-pointer relative"
                 >
-                  <div className="relative aspect-[3/4] overflow-hidden bg-black/40 rounded-sm shadow-xl mb-4 border border-white/10 group-hover:border-[#cba677]/50 transition-all duration-500">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-black/30 rounded-sm shadow-xl border border-white/10 group-hover:border-[#cba677]/60 transition-all duration-500">
                     <Image
-                      src={item.src}
-                      alt={item.title}
+                      src={album.src}
+                      alt={album.title}
                       fill
+                      priority={index < 3}
+                      loading={index < 3 ? "eager" : "lazy"}
+                      unoptimized={album.src.startsWith("http")}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100"
-                      unoptimized
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                      <span className="text-xs uppercase tracking-[0.3em] text-[#cba677]">
-                        Explore Showcase
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent group-hover:from-black transition-all duration-500 flex flex-col justify-end p-6 text-center">
+                      <span className="text-[10px] uppercase tracking-[0.3em] text-[#cba677] mb-2 font-light">
+                        {album.category} &bull; {album.count}
                       </span>
+                      <h3
+                        className={`text-2xl md:text-3xl text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 mb-4 ${cormorant.className}`}
+                      >
+                        {album.title}
+                      </h3>
+                      <div className="inline-flex items-center justify-center gap-2 mx-auto px-4 py-2 border border-[#cba677]/40 bg-black/40 group-hover:bg-[#cba677] group-hover:text-[#3E141E] transition-all duration-500 rounded-sm text-[10px] uppercase tracking-[0.25em]">
+                        <span>Explore Album</span>
+                        <span>↗</span>
+                      </div>
                     </div>
                   </div>
-                  <h3
-                    className={`text-2xl text-white tracking-wide group-hover:text-[#cba677] transition-colors duration-300 ${cormorant.className}`}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className="text-[10px] text-gray-400 tracking-[0.2em] uppercase mt-1 font-light">
-                    {item.category}
-                  </p>
-                </motion.div>
+                </Link>
               ))}
             </motion.div>
           </AnimatePresence>
