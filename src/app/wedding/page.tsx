@@ -33,6 +33,64 @@ const fadeVariants: Variants = {
   exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
 };
 
+function getYouTubeId(url: string): string {
+  const match = url.match(/(?:embed\/|v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  return match ? match[1] : "";
+}
+
+function LiteYouTubePlayer({
+  embedUrl,
+  title,
+}: {
+  embedUrl: string;
+  title: string;
+}) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoId = getYouTubeId(embedUrl);
+
+  if (!videoId) return null;
+
+  if (isPlaying) {
+    return (
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`}
+        title={title}
+        className="w-full h-full"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => setIsPlaying(true)}
+      aria-label={`Play ${title}`}
+      className="relative w-full h-full group cursor-pointer block overflow-hidden bg-black focus:outline-none"
+    >
+      <img
+        src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+        alt={title}
+        loading="lazy"
+        decoding="async"
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-85 group-hover:opacity-100"
+      />
+      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/15 transition-colors duration-300 flex items-center justify-center">
+        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#3E141E]/85 border border-[#cba677] flex items-center justify-center text-[#cba677] group-hover:bg-[#cba677] group-hover:text-[#3E141E] group-hover:scale-110 transition-all duration-300 shadow-2xl">
+          <svg
+            className="w-5 h-5 sm:w-6 sm:h-6 ml-0.5"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+      </div>
+    </button>
+  );
+}
+
 export default function WeddingPage() {
   const [activeTab, setActiveTab] = useState<"photography" | "cinematography">(
     "photography",
@@ -177,6 +235,7 @@ export default function WeddingPage() {
                         fill
                         priority={index < 3}
                         loading={index < 3 ? "eager" : "lazy"}
+                        unoptimized={album.src.startsWith("http")}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                       />
@@ -213,14 +272,10 @@ export default function WeddingPage() {
                 {filteredFilms.map((film) => (
                   <div key={film.id} className="group flex flex-col">
                     <div className="relative aspect-video overflow-hidden bg-black/50 mb-3 rounded-sm shadow-xl border border-white/10 group-hover:border-[#cba677]/50 transition-all duration-500">
-                      <iframe
-                        src={film.youtubeEmbedUrl}
+                      <LiteYouTubePlayer
+                        embedUrl={film.youtubeEmbedUrl}
                         title={film.title}
-                        loading="lazy"
-                        className="w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
+                      />
                     </div>
                     {film.title && (
                       <h3

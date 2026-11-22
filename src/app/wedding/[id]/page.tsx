@@ -150,11 +150,14 @@ export default function AlbumDetailPage() {
                 onClick={() => setLightboxIndex(index)}
                 className="mb-5 sm:mb-6 break-inside-avoid relative overflow-hidden rounded-sm group cursor-pointer bg-black/40 border border-white/10 shadow-lg"
               >
-                <img
+                <Image
                   src={photo}
                   alt={`${album.title} - Photo ${index + 1}`}
+                  width={900}
+                  height={1125}
                   loading={index < 3 ? "eager" : "lazy"}
-                  decoding="async"
+                  unoptimized={photo.startsWith("http")}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
